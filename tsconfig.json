@@ -25,6 +25,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@processes/*": ["src/processes/*"],
+      "@widgets/*": ["src/widgets/*"],
       "@pages/*": ["src/pages/*"],
       "@entities/*": ["src/entities/*"],
       "@shared/*": ["src/shared/*"]

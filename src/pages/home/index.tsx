@@ -1,7 +1,12 @@
+import Window from "@widgets/window/ui";
 import { type ReactNode } from "react";
 
 function Home(): ReactNode {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Window />
+    </div>
+  );
 }
 
 export { Home };

@@ -1,7 +1,7 @@
 import { useEffect, type ReactNode, useState } from "react";
 import { useBootUpStore } from "@app/store/bootUp";
 import { Grain } from "@shared/ui/grain";
-import { WindowsXPTextElement } from "@shared/ui/text-elements";
+import { TahomaTextElement } from "@shared/ui/text-elements";
 import { LoadingBar } from "@shared/ui/loading-bar";
 import microsoftLogoImage from "@shared/images/microsoft-logo.png";
 import windowsXpLogoImage from "@shared/images/windows-xp-logo.png";
@@ -52,9 +52,9 @@ function BootUpPage(): ReactNode {
             </div>
             <LoadingBar />
             <div className="boot-up__footer">
-              <WindowsXPTextElement className="boot-up__footer__copyright">
+              <TahomaTextElement className="boot-up__footer__copyright">
                 Copyright &copy; Microsoft Corporation
-              </WindowsXPTextElement>
+              </TahomaTextElement>
               <img
                 src={microsoftLogoImage}
                 className="boot-up__footer__microsoft-logo"
