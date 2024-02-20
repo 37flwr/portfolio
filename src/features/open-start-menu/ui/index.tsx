@@ -1,11 +1,20 @@
 import { type ReactNode } from "react";
-import { StartButton } from "@shared/ui/buttons";
+import { StartButton } from "@entities/start-button";
+import { StartButtonActive } from "@shared/ui/buttons";
 import { useMenuState } from "../model/useMenuState";
 
 function OpenStartMenuButton(): ReactNode {
-  const [menuOpened, swicthMenuOpenedState] = useMenuState();
+  const [menuOpened, switchMenuOpenedState] = useMenuState();
 
-  return <StartButton active={menuOpened} onClick={swicthMenuOpenedState} />;
+  if (menuOpened) {
+    return (
+      <button className="start-button" onClick={switchMenuOpenedState}>
+        <StartButtonActive />
+      </button>
+    );
+  }
+
+  return <StartButton onClick={switchMenuOpenedState} />;
 }
 
 export { OpenStartMenuButton };

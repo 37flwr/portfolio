@@ -6,9 +6,9 @@ export const useMenuState = (): [boolean, () => void] => {
     (store) => store.setMenuOpenedStateTo
   );
 
-  const swicthMenuOpenedState = () => {
+  const switchMenuOpenedState = () => {
     setMenuOpenedStateTo(!menuOpened);
   };
 
-  return [menuOpened, swicthMenuOpenedState];
+  return [menuOpened, switchMenuOpenedState];
 };

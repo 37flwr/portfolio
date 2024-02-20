@@ -1,18 +1,15 @@
 import { useState, type ReactNode } from "react";
+import { IButtonWithHoverActiveStaleStates } from "../lib/ButtonWithStates.interface";
 
 import "./styles.scss";
 
-interface IButtonWithStates {
-  active: ReactNode;
-  hover: ReactNode;
-  stale: ReactNode;
-}
-
-function ButtonWithStates({
+function ButtonWithHoverActiveStaleStates({
   active,
   hover,
   stale,
-}: IButtonWithStates): ReactNode {
+  onClick,
+  className,
+}: IButtonWithHoverActiveStaleStates): ReactNode {
   const [activeState, setActiveState] = useState<boolean>(false);
   const [hoverState, setHoverState] = useState<boolean>(false);
   return (
@@ -25,17 +22,17 @@ function ButtonWithStates({
       onMouseDown={() => {
         setHoverState(false);
         setActiveState(true);
+        onClick();
       }}
       onMouseUp={() => {
         setHoverState(true);
         setActiveState(false);
       }}
-      className="button-with-states"
-      aria-label=""
+      className={`button-with-states ${className}`}
     >
       {activeState ? active : hoverState ? hover : stale}
     </button>
   );
 }
 
-export { ButtonWithStates };
+export { ButtonWithHoverActiveStaleStates };

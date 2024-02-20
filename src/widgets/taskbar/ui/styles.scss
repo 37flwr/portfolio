@@ -13,5 +13,8 @@
     #003dd7
   );
   width: 100vw;
-  height: 30px;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
 }

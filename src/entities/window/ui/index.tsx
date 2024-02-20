@@ -6,7 +6,7 @@ import "./styles.scss";
 interface IWindow extends PropsWithChildren {
   title: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  windowActionButtons: Array<ReactNode>;
+  windowActionButtons: ReactNode;
 }
 
 function Window({ title, windowActionButtons, children }: IWindow): ReactNode {
@@ -16,9 +16,7 @@ function Window({ title, windowActionButtons, children }: IWindow): ReactNode {
         <TrebuchetTextElement className="window__title-bar__text">
           {title}
         </TrebuchetTextElement>
-        <div className="window__title-bar__controls">
-          {windowActionButtons.map((ActionButton) => ActionButton)}
-        </div>
+        <div className="window__title-bar__controls">{windowActionButtons}</div>
       </div>
 
       <div className="window__content">{children}</div>

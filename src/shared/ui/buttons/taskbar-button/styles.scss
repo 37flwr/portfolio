@@ -1,0 +1,39 @@
+.taskbar-button {
+  display: flex;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  align-items: center;
+  border-radius: 0.25rem;
+  border-top-width: 2px;
+  width: var(--taskbar-button-width);
+  height: calc(var(--header-height) - 5px);
+  color: var(--color-white);
+  cursor: pointer;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  &_collapsed {
+    border-color: #93c5fd;
+    background-color: #60a5fa;
+  }
+
+  &_active {
+    border-color: #1d4ed8;
+    background-color: #1d4ed8;
+  }
+
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &__title {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+    padding-left: 0.5rem;
+    flex-grow: 1;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

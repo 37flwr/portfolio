@@ -6,8 +6,8 @@ const loadingBarElements = 3;
 function LoadingBar(): ReactNode {
   return (
     <div className="loading-bar">
-      {Array(...Array(loadingBarElements)).map(() => (
-        <div className="loading-bar__element" />
+      {Array(...Array(loadingBarElements)).map((_, idx) => (
+        <div key={idx} className="loading-bar__element" />
       ))}
     </div>
   );
