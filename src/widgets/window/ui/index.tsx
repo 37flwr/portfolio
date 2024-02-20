@@ -1,20 +1,16 @@
 import { WindowFrame } from "@entities/window";
 import { type ReactNode } from "react";
 
-import {
-  WindowCloseButton,
-  WindowMaximizeButton,
-  WindowMinimizeButton,
-} from "@shared/ui/buttons";
+import { WindowActionButtonFactory } from "@entities/window-action-button-factory/ui";
 
 function Window(): ReactNode {
   return (
     <WindowFrame
       title="test"
       windowActionButtons={[
-        WindowMinimizeButton,
-        WindowMaximizeButton,
-        WindowCloseButton,
+        <WindowActionButtonFactory type="minimize" key="minimize" />,
+        <WindowActionButtonFactory type="maximize" key="maximize" />,
+        <WindowActionButtonFactory type="close" key="close" />,
       ]}
     >
       1
@@ -22,4 +18,4 @@ function Window(): ReactNode {
   );
 }
 
-export default Window;
+export { Window };

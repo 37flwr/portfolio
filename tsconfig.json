@@ -26,6 +26,7 @@
       "@app/*": ["src/app/*"],
       "@processes/*": ["src/processes/*"],
       "@widgets/*": ["src/widgets/*"],
+      "@features/*": ["src/features/*"],
       "@pages/*": ["src/pages/*"],
       "@entities/*": ["src/entities/*"],
       "@shared/*": ["src/shared/*"]

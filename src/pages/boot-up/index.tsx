@@ -3,9 +3,9 @@ import { useBootUpStore } from "@app/store/bootUp";
 import { Grain } from "@shared/ui/grain";
 import { TahomaTextElement } from "@shared/ui/text-elements";
 import { LoadingBar } from "@shared/ui/loading-bar";
-import microsoftLogoImage from "@shared/images/microsoft-logo.png";
-import windowsXpLogoImage from "@shared/images/windows-xp-logo.png";
-import greetingScreenBg from "@shared/images/greeting-screen-bg.png";
+import microsoftLogoImage from "@shared/assets/images/microsoft-logo.png";
+import windowsXpLogoImage from "@shared/assets/images/windows-xp-logo.png";
+import greetingScreenBg from "@shared/assets/images/greeting-screen-bg.png";
 import {
   BOOT_UP_TIMEOUT,
   GREETING_SCREEN_TIMEOUT,

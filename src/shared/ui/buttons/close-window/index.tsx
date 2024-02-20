@@ -1,7 +1,3 @@
-import { type ReactNode } from "react";
-
-function WindowCloseButton({ onClick }: { onClick: () => void }): ReactNode {
-  return <button onClick={onClick} aria-label="Close"></button>;
-}
-
-export { WindowCloseButton };
+export { CloseWindowActive as CloseWindowActive } from "./Active";
+export { CloseWindowHover as CloseWindowHover } from "./Hover";
+export { CloseWindowStale as CloseWindowStale } from "./Stale";

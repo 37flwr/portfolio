@@ -1,7 +1,3 @@
-import { type ReactNode } from "react";
-
-function WindowMinimizeButton({ onClick }: { onClick: () => void }): ReactNode {
-  return <button onClick={onClick} aria-label="Minimize"></button>;
-}
-
-export { WindowMinimizeButton };
+export { MinimizeWindowActive as MinimizeWindowActive } from "./Active";
+export { MinimizeWindowHover as MinimizeWindowHover } from "./Hover";
+export { MinimizeWindowStale as MinimizeWindowStale } from "./Stale";

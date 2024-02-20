@@ -27,10 +27,10 @@
       rgba(0, 0, 0, 0) 3px
     );
 
-  &__header {
+  &__title-bar {
     background: #006fea;
-    line-height: 32px;
-    height: 30px;
+    line-height: 25px;
+    height: 25px;
     position: relative;
     margin: 0;
     padding: 0;
@@ -70,6 +70,17 @@
     font-size: 14px;
     padding-left: 8px;
     text-shadow: 1px 1px 0 #0a2a95;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__controls {
+      height: auto;
+      padding-right: 4px;
+      display: flex;
+      gap: 3px;
+    }
   }
 
   &__content {

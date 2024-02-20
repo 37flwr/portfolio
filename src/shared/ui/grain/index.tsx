@@ -1,5 +1,5 @@
 import { type PropsWithChildren, type ReactNode } from "react";
-import grainImage from "@shared/images/grain.png";
+import grainImage from "@shared/assets/images/grain.png";
 import "./styles.scss";
 
 function Grain({ children }: PropsWithChildren): ReactNode {

@@ -1,7 +1,3 @@
-import { type ReactNode } from "react";
-
-function WindowMaximizeButton({ onClick }: { onClick: () => void }): ReactNode {
-  return <button onClick={onClick} aria-label="Maximize"></button>;
-}
-
-export { WindowMaximizeButton };
+export { MaximizeWindowActive as MaximizeWindowActive } from "./Active";
+export { MaximizeWindowHover as MaximizeWindowHover } from "./Hover";
+export { MaximizeWindowStale as MaximizeWindowStale } from "./Stale";
