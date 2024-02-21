@@ -36,10 +36,10 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
         console.log(111);
         setDragging(true);
       }}
-      // onDrag={this.handleDrag}
       onStop={(_, data: DraggableData) => {
-        setDragging(false);
         const coordinates = { x: data.x, y: data.y };
+
+        setDragging(false);
         saveWindowPosition(windowId, coordinates);
       }}
     >
