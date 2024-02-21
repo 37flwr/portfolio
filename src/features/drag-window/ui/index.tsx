@@ -7,7 +7,7 @@ import {
 import { shallow } from "zustand/shallow";
 import Draggable, { type DraggableData } from "react-draggable";
 import { useWindowsStore } from "@app/store/windows";
-import { saveWindowPosition } from "../model/saveWindowPosition";
+import { changeWindowPosition } from "../model/changeWindowPosition";
 
 interface IDraggableWindow extends PropsWithChildren {
   windowId: string;
@@ -29,24 +29,24 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
       nodeRef={nodeRef}
       axis="both"
       bounds="parent"
-      handle=".handle"
+      handle=".window__title-bar"
       defaultPosition={coordinates}
       grid={[10, 10]}
       scale={1}
       onStart={() => {
-        saveWindowPosition(windowId, coordinates);
+        changeWindowPosition(windowId, coordinates);
         setDragging(true);
       }}
       onStop={(_, data: DraggableData) => {
         const coordinates = { x: data.x, y: data.y };
 
         setDragging(false);
-        saveWindowPosition(windowId, coordinates);
+        changeWindowPosition(windowId, coordinates);
       }}
     >
       <div
         ref={nodeRef}
-        className="handle window_wrapper"
+        className="window_wrapper"
         style={{ zIndex: dragging ? 9999 : coordinates.z }}
       >
         {children}

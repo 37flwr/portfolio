@@ -11,7 +11,9 @@ interface WindowsStore {
   openWindow: (content: ReactNode) => void;
   closeWindow: (windowId: string) => void;
   changeWindowStatusTo: (windowId: string, state: WindowStates) => void;
-  saveWindowPosition: (
+  bringWindowToTheFront: (windowId: string) => void;
+  bringWindowToTheBack: (windowId: string) => void;
+  changeWindowPosition: (
     windowId: string,
     { x, y }: { x: number; y: number }
   ) => void;
@@ -25,14 +27,21 @@ const store = (set: any): WindowsStore => ({
       windowTitle: "testtest",
       windowState: "opened",
       windowContent: <div>123</div>,
-      coordinates: { x: 10, y: 100, z: 0 },
+      coordinates: { x: 10, y: 100, z: 1 },
     },
     {
       windowId: "2",
       windowTitle: "testtest2",
       windowState: "opened",
       windowContent: <div>1233</div>,
-      coordinates: { x: 100, y: 10, z: 1 },
+      coordinates: { x: 100, y: 10, z: 2 },
+    },
+    {
+      windowId: "3",
+      windowTitle: "testtest21",
+      windowState: "minimized",
+      windowContent: <div>minim</div>,
+      coordinates: { x: 100, y: 300, z: 0 },
     },
   ],
   openWindow: (content) => {
@@ -55,19 +64,41 @@ const store = (set: any): WindowsStore => ({
       const newWindows = [...state.windows];
       newWindows[modifiedWindowIdx].windowState = status;
 
-      if (status === "minimized") {
-        newWindows[modifiedWindowIdx].coordinates.z = 0;
-      } else if (status === "opened") {
-        newWindows[modifiedWindowIdx].coordinates.z =
-          findBiggestZIndex(state.windows) + 1;
-      }
+      return {
+        windows: [...newWindows],
+      };
+    });
+  },
+  bringWindowToTheFront: (windowId) => {
+    set((state: WindowsStore) => {
+      const modifiedWindowIdx = state.windows.findIndex(
+        (window) => window.windowId === windowId
+      );
+      const biggestZIndex = findBiggestZIndex(state.windows);
+
+      const newWindows = [...state.windows];
+      newWindows[modifiedWindowIdx].coordinates.z = biggestZIndex + 1;
 
       return {
         windows: [...newWindows],
       };
     });
   },
-  saveWindowPosition: (windowId, coordinates) => {
+  bringWindowToTheBack: (windowId) => {
+    set((state: WindowsStore) => {
+      const modifiedWindowIdx = state.windows.findIndex(
+        (window) => window.windowId === windowId
+      );
+
+      const newWindows = [...state.windows];
+      newWindows[modifiedWindowIdx].coordinates.z = 0;
+
+      return {
+        windows: [...newWindows],
+      };
+    });
+  },
+  changeWindowPosition: (windowId, coordinates) => {
     set((state: WindowsStore) => {
       const highestZIndex = findBiggestZIndex(state.windows);
 

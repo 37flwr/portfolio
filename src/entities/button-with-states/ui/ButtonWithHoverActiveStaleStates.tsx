@@ -22,11 +22,11 @@ function ButtonWithHoverActiveStaleStates({
       onMouseDown={() => {
         setHoverState(false);
         setActiveState(true);
-        onClick();
       }}
       onMouseUp={() => {
         setHoverState(true);
         setActiveState(false);
+        onClick();
       }}
       className={`button-with-states ${className}`}
     >

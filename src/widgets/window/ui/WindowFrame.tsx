@@ -1,12 +1,17 @@
 import React, { type ReactNode } from "react";
 import { WindowActionButtons } from "./WindowActionButtons";
-import { getWindow } from "@shared/lib/getWindowDetails";
 import { TrebuchetTextElement } from "@shared/ui/text-elements";
 
 import "./styles.scss";
+import { useWindowsStore } from "@app/store/windows";
+import { shallow } from "zustand/shallow";
 
 function WindowFrame({ windowId }: { windowId: string }): ReactNode {
-  const window = getWindow(windowId);
+  const window = useWindowsStore(
+    (store) =>
+      store.windows.filter((window) => window.windowId === windowId)[0],
+    shallow
+  );
 
   return (
     <div className="window" style={{ width: 640, height: 480 }}>

@@ -1,9 +1,9 @@
 import { type ReactNode } from "react";
 import { useWindowsStore } from "@app/store/windows";
 import { OpenStartMenuButton } from "@features/open-start-menu";
+import { TaskbarButton } from "@features/flip-window-state";
 
 import "./styles.scss";
-import { TaskbarButton } from "@features/flip-window-state";
 
 function Taskbar(): ReactNode {
   const windows = useWindowsStore((store) => store.windows);
