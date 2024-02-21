@@ -1,0 +1,10 @@
+.taskbar-button_wrapper {
+  &_stale {
+    display: flex;
+    width: var(--taskbar-button-width);
+  }
+  &_active {
+    display: flex;
+    width: var(--taskbar-button-width);
+  }
+}

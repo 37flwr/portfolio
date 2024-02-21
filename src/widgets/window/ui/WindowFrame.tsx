@@ -1,19 +1,15 @@
 import React, { type ReactNode } from "react";
 import { WindowActionButtons } from "./WindowActionButtons";
-import { getWindow, getWindowIdx } from "@shared/lib/getWindowDetails";
+import { getWindow } from "@shared/lib/getWindowDetails";
 import { TrebuchetTextElement } from "@shared/ui/text-elements";
 
 import "./styles.scss";
 
 function WindowFrame({ windowId }: { windowId: string }): ReactNode {
   const window = getWindow(windowId);
-  const windowIdx = getWindowIdx(windowId);
 
   return (
-    <div
-      className="window"
-      style={{ width: 640, height: 480, zIndex: windowIdx }}
-    >
+    <div className="window" style={{ width: 640, height: 480 }}>
       <div className="window__title-bar">
         <TrebuchetTextElement className="window__title-bar__text">
           {window.windowTitle}

@@ -1,26 +1,27 @@
 import {
   useRef,
+  useState,
   type PropsWithChildren,
   type ReactNode,
-  useState,
 } from "react";
+import { shallow } from "zustand/shallow";
 import Draggable, { type DraggableData } from "react-draggable";
+import { useWindowsStore } from "@app/store/windows";
 import { saveWindowPosition } from "../model/saveWindowPosition";
-import {
-  getWindowCoordinates,
-  getWindowIdx,
-} from "@shared/lib/getWindowDetails";
 
 interface IDraggableWindow extends PropsWithChildren {
   windowId: string;
 }
 
 function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
-  const coordinates = getWindowCoordinates(windowId);
-  const windowIdx = getWindowIdx(windowId);
+  const coordinates = useWindowsStore(
+    (state) =>
+      state.windows.filter((window) => window.windowId === windowId)[0]
+        .coordinates,
+    shallow
+  );
 
   const [dragging, setDragging] = useState<boolean>(false);
-
   const nodeRef = useRef(null);
 
   return (
@@ -33,6 +34,7 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
       grid={[10, 10]}
       scale={1}
       onStart={() => {
+        saveWindowPosition(windowId, coordinates);
         setDragging(true);
       }}
       onStop={(_, data: DraggableData) => {
@@ -45,7 +47,7 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
       <div
         ref={nodeRef}
         className="handle window_wrapper"
-        style={{ zIndex: dragging ? 99 : windowIdx }}
+        style={{ zIndex: dragging ? 9999 : coordinates.z }}
       >
         {children}
       </div>

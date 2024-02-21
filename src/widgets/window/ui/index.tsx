@@ -1,6 +1,5 @@
 import { type ReactNode } from "react";
 import { WindowFrame } from "./WindowFrame";
-import { getWindow } from "@shared/lib/getWindowDetails";
 import { DraggableWindow } from "@features/drag-window";
 
 interface WindowWidget {

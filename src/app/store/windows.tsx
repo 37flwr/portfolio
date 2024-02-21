@@ -1,16 +1,10 @@
-import { ReactElement, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { createWithEqualityFn } from "zustand/traditional";
 import { persist } from "zustand/middleware";
+import { Window } from "@shared/types/Window.interface";
+import { findBiggestZIndex } from "@shared/lib/getWindowDetails";
 
-type WindowStates = "opened" | "minimized" | "maximized";
-
-interface Window {
-  windowId: string;
-  windowTitle: string;
-  windowState: WindowStates;
-  windowContent: ReactElement;
-  coordinates: { x: number; y: number };
-}
+type WindowStates = "opened" | "minimized";
 
 interface WindowsStore {
   windows: Array<Window>;
@@ -31,14 +25,14 @@ const store = (set: any): WindowsStore => ({
       windowTitle: "testtest",
       windowState: "opened",
       windowContent: <div>123</div>,
-      coordinates: { x: 10, y: 100 },
+      coordinates: { x: 10, y: 100, z: 0 },
     },
     {
       windowId: "2",
       windowTitle: "testtest2",
       windowState: "opened",
       windowContent: <div>1233</div>,
-      coordinates: { x: 100, y: 10 },
+      coordinates: { x: 100, y: 10, z: 1 },
     },
   ],
   openWindow: (content) => {
@@ -55,32 +49,44 @@ const store = (set: any): WindowsStore => ({
   },
   changeWindowStatusTo: (windowId, status) => {
     set((state: WindowsStore) => {
-      const modifiedWindow = state.windows.filter(
+      const modifiedWindowIdx = state.windows.findIndex(
         (window) => window.windowId === windowId
-      )[0];
-      modifiedWindow.windowState = status;
+      );
+      const newWindows = [...state.windows];
+      newWindows[modifiedWindowIdx].windowState = status;
+
+      if (status === "minimized") {
+        newWindows[modifiedWindowIdx].coordinates.z = 0;
+      } else if (status === "opened") {
+        newWindows[modifiedWindowIdx].coordinates.z =
+          findBiggestZIndex(state.windows) + 1;
+      }
 
       return {
-        windows: [
-          ...state.windows.filter((window) => window.windowId !== windowId),
-          modifiedWindow,
-        ],
+        windows: [...newWindows],
       };
     });
   },
   saveWindowPosition: (windowId, coordinates) => {
     set((state: WindowsStore) => {
-      const modifiedWindow = state.windows.filter(
-        (window) => window.windowId === windowId
-      )[0];
+      const highestZIndex = findBiggestZIndex(state.windows);
 
-      modifiedWindow.coordinates = coordinates;
+      const modifiedWindowIdx = state.windows.findIndex(
+        (window) => window.windowId === windowId
+      );
+
+      const newWindows = [...state.windows];
+      newWindows[modifiedWindowIdx].coordinates = {
+        ...coordinates,
+        z:
+          // If window's z index is the highest - dont change it
+          state.windows[modifiedWindowIdx].coordinates.z === highestZIndex
+            ? highestZIndex
+            : highestZIndex + 1,
+      };
 
       return {
-        windows: [
-          ...state.windows.filter((window) => window.windowId !== windowId),
-          modifiedWindow,
-        ],
+        windows: [...newWindows],
       };
     });
   },

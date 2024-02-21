@@ -1,8 +1,11 @@
 import { type ReactElement } from "react";
 
-export interface IWindow {
+export type WindowStates = "opened" | "minimized" | "maximized";
+
+export interface Window {
   windowId: string;
   windowTitle: string;
-  windowState: "opened" | "minimized" | "maximized";
+  windowState: WindowStates;
   windowContent: ReactElement;
+  coordinates: { x: number; y: number; z: number };
 }

@@ -1,22 +1,20 @@
 import { type ReactNode } from "react";
-import { shallow } from "zustand/shallow";
 import { useWindowsStore } from "@app/store/windows";
 import { OpenStartMenuButton } from "@features/open-start-menu";
 
 import "./styles.scss";
-import { ExpandWindowButton } from "@features/expand-window";
+import { TaskbarButton } from "@features/flip-window-state";
 
 function Taskbar(): ReactNode {
-  const minimizedWindows = useWindowsStore(
-    (store) =>
-      store.windows.filter((window) => window.windowState === "minimized"),
-    shallow
-  );
+  const windows = useWindowsStore((store) => store.windows);
+
   return (
     <div className="taskbar">
-      <OpenStartMenuButton />
-      {minimizedWindows.map((window) => (
-        <ExpandWindowButton windowId={window.windowId} key={window.windowId} />
+      <div className="taskbar__start-button">
+        <OpenStartMenuButton />
+      </div>
+      {windows.map((window) => (
+        <TaskbarButton key={window.windowId} windowId={window.windowId} />
       ))}
     </div>
   );
