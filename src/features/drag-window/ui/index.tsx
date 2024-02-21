@@ -33,7 +33,6 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
       grid={[10, 10]}
       scale={1}
       onStart={() => {
-        console.log(111);
         setDragging(true);
       }}
       onStop={(_, data: DraggableData) => {
