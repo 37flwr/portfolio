@@ -7,3 +7,8 @@
   height: 100vh;
   object-fit: cover;
 }
+
+.page {
+  width: 100vw;
+  height: calc(100vh - var(--header-height));
+}

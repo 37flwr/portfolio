@@ -15,9 +15,9 @@ function Home(): ReactNode {
   );
 
   return (
-    <div>
+    <div className="page">
       {visibleWindows.map((window) => (
-        <Window key={window.windowId} {...window} />
+        <Window key={window.windowId} windowId={window.windowId} />
       ))}
       <Taskbar />
       <img className="wallpaper" src={wallpaper} alt="" />

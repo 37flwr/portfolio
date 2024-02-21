@@ -1,29 +1,19 @@
-import { WindowFrame } from "@entities/window";
-import React, { type ReactNode } from "react";
+import { type ReactNode } from "react";
+import { WindowFrame } from "./WindowFrame";
+import { getWindow } from "@shared/lib/getWindowDetails";
+import { DraggableWindow } from "@features/drag-window";
 
-import { WindowActionButtonFactory } from "@entities/window-action-button-factory/ui";
-import { CloseWindowButton } from "@features/close-window";
-import { IWindow } from "@shared/types/Window.interface";
-import { MinimizeWindowButton } from "@features/minimize-window";
+interface WindowWidget {
+  windowId: string;
+}
 
-function Window(props: IWindow): ReactNode {
+function Window({ windowId }: WindowWidget): ReactNode {
+  // const window = getWindow(windowId);
+
   return (
-    <WindowFrame
-      title={props.windowTitle}
-      windowActionButtons={
-        <>
-          <MinimizeWindowButton windowId={props.windowId} />
-          <WindowActionButtonFactory
-            onClick={() => console.log("maximize")}
-            type="maximize"
-            key="maximize"
-          />
-          <CloseWindowButton windowId={props.windowId} />
-        </>
-      }
-    >
-      {React.createElement(props.windowContent.type, props.windowContent.props)}
-    </WindowFrame>
+    <DraggableWindow windowId={windowId}>
+      <WindowFrame windowId={windowId} />
+    </DraggableWindow>
   );
 }
 
