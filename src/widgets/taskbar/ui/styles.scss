@@ -25,10 +25,22 @@
 
   display: flex;
   align-items: center;
+  display: grid;
+  grid-template-columns: var(--start-button-width) auto var(--system-tray-width);
 
   &__start-button {
-    margin-right: 10px;
     height: var(--header-height);
-    width: fit-content;
+    width: var(--start-button-width);
+  }
+
+  &__system-tray {
+    height: var(--header-height);
+    width: var(--system-tray-width);
+    display: flex;
+  }
+
+  &__buttons {
+    padding-inline: 10px;
+    display: flex;
   }
 }
