@@ -1,4 +1,6 @@
 .window {
+  width: 640px;
+  height: 480px;
   background: green;
   border: 1px solid black;
   border-radius: 5px 5px 0 0;
@@ -93,4 +95,9 @@
     border: 1px solid #91adc6;
     margin: 0 2px 2px;
   }
+}
+
+.expanded {
+  width: 100vw !important;
+  height: calc(100vh - var(--taskbar-height)) !important;
 }

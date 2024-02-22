@@ -7,9 +7,12 @@ import {
   CloseWindowIconActive,
   CloseWindowIconHover,
   CloseWindowIconStale,
-  MaximizeWindowIconActive,
-  MaximizeWindowIconHover,
-  MaximizeWindowIconStale,
+  ExpandWindowIconActive,
+  ExpandWindowIconHover,
+  ExpandWindowIconStale,
+  ShrinkWindowIconActive,
+  ShrinkWindowIconHover,
+  ShrinkWindowIconStale,
 } from "@shared/ui/windows-icons";
 
 import "./styles.scss";
@@ -29,13 +32,23 @@ const windowActionButtons: WindowActionButtonScheme = {
       />
     );
   },
-  maximize: (onClick): ReactNode => {
+  shrink: (onClick): ReactNode => {
     return (
       <ButtonWithHoverActiveStaleStates
         onClick={onClick}
-        active={<MaximizeWindowIconActive />}
-        hover={<MaximizeWindowIconHover />}
-        stale={<MaximizeWindowIconStale />}
+        active={<ShrinkWindowIconActive />}
+        hover={<ShrinkWindowIconHover />}
+        stale={<ShrinkWindowIconStale />}
+      />
+    );
+  },
+  expand: (onClick): ReactNode => {
+    return (
+      <ButtonWithHoverActiveStaleStates
+        onClick={onClick}
+        active={<ExpandWindowIconActive />}
+        hover={<ExpandWindowIconHover />}
+        stale={<ExpandWindowIconStale />}
       />
     );
   },

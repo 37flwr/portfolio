@@ -17,6 +17,7 @@ interface WindowsStore {
     { x, y }: { x: number; y: number }
   ) => void;
   expandWindow: (windowId: string) => void;
+  shrinkWindow: (windowId: string) => void;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,6 +28,8 @@ const store = (set: any): WindowsStore => ({
       windowTitle: "testtest",
       windowState: "opened",
       windowContent: <div>123</div>,
+      windowSize: { w: 640, h: 500 },
+      isExpanded: false,
       windowIcon: <img src={testIcon} alt="" />,
       coordinates: { x: 10, y: 100, z: 1 },
     },
@@ -34,6 +37,8 @@ const store = (set: any): WindowsStore => ({
       windowId: "2",
       windowTitle: "testtest2",
       windowState: "opened",
+      windowSize: { w: 640, h: 400 },
+      isExpanded: false,
       windowContent: <div>1233</div>,
       windowIcon: <img src={testIcon} alt="" />,
       coordinates: { x: 100, y: 10, z: 2 },
@@ -43,6 +48,8 @@ const store = (set: any): WindowsStore => ({
       windowTitle: "testtest21",
       windowState: "minimized",
       windowContent: <div>minim</div>,
+      windowSize: { w: 640, h: 300 },
+      isExpanded: false,
       windowIcon: <img src={testIcon} alt="" />,
       coordinates: { x: 100, y: 300, z: 0 },
     },
@@ -54,6 +61,8 @@ const store = (set: any): WindowsStore => ({
         windowTitle: newWindowInfo.title,
         windowState: "opened",
         windowContent: newWindowInfo.Content,
+        windowSize: { w: 640, h: 400 },
+        isExpanded: false,
         windowIcon: newWindowInfo.Icon,
         coordinates: {
           x: 100,
@@ -147,9 +156,22 @@ const store = (set: any): WindowsStore => ({
         (window) => window.windowId === windowId
       );
       const newWindows = [...state.windows];
-      newWindows[modifiedWindowIdx].windowState = "expanded";
+      newWindows[modifiedWindowIdx].isExpanded = true;
       newWindows[modifiedWindowIdx].coordinates.z =
         findBiggestZIndex(state.windows) + 1;
+
+      return {
+        windows: [...newWindows],
+      };
+    });
+  },
+  shrinkWindow: (windowId) => {
+    set((state: WindowsStore) => {
+      const modifiedWindowIdx = state.windows.findIndex(
+        (window) => window.windowId === windowId
+      );
+      const newWindows = [...state.windows];
+      newWindows[modifiedWindowIdx].isExpanded = false;
 
       return {
         windows: [...newWindows],

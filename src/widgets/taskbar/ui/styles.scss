@@ -21,7 +21,7 @@
     #1941a5 98%
   );
   width: 100vw;
-  height: var(--header-height);
+  height: var(--taskbar-height);
 
   display: flex;
   align-items: center;
@@ -29,12 +29,12 @@
   grid-template-columns: var(--start-button-width) auto var(--system-tray-width);
 
   &__start-button {
-    height: var(--header-height);
+    height: var(--taskbar-height);
     width: var(--start-button-width);
   }
 
   &__system-tray {
-    height: var(--header-height);
+    height: var(--taskbar-height);
     width: var(--system-tray-width);
     display: flex;
   }

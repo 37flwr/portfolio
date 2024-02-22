@@ -1,12 +1,19 @@
 import React, { type ReactNode } from "react";
-import { WindowActionButtons } from "./WindowActionButtons";
+import { shallow } from "zustand/shallow";
+import { useWindowsStore } from "@app/store/windows";
 import { TrebuchetTextElement } from "@shared/ui/text-elements";
 
+import { WindowActionButtons } from "./WindowActionButtons";
 import "./styles.scss";
-import { useWindowsStore } from "@app/store/windows";
-import { shallow } from "zustand/shallow";
+import { ExpandedWindowActionButtons } from "./ExpandedWindowActionButtons";
 
-function WindowFrame({ windowId }: { windowId: string }): ReactNode {
+function WindowFrame({
+  windowId,
+  className,
+}: {
+  windowId: string;
+  className?: string;
+}): ReactNode {
   const window = useWindowsStore(
     (store) =>
       store.windows.filter((window) => window.windowId === windowId)[0],
@@ -14,13 +21,20 @@ function WindowFrame({ windowId }: { windowId: string }): ReactNode {
   );
 
   return (
-    <div className="window" style={{ width: 640, height: 480 }}>
+    <div
+      className={`window ${className}`}
+      style={{ width: window.windowSize.w, height: window.windowSize.h }}
+    >
       <div className="window__title-bar">
         <TrebuchetTextElement className="window__title-bar__text">
           {window.windowTitle}
         </TrebuchetTextElement>
         <div className="window__title-bar__controls">
-          <WindowActionButtons windowId={windowId} />
+          {window.isExpanded ? (
+            <ExpandedWindowActionButtons windowId={windowId} />
+          ) : (
+            <WindowActionButtons windowId={windowId} />
+          )}
         </div>
       </div>
       <div className="window__content">

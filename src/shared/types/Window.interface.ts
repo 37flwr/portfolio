@@ -6,6 +6,8 @@ export interface Window {
   windowId: string;
   windowIcon: ReactElement;
   windowTitle: string;
+  windowSize: { w: number; h: number };
+  isExpanded: boolean;
   windowState: WindowStates;
   windowContent: ReactElement;
   coordinates: { x: number; y: number; z: number };
