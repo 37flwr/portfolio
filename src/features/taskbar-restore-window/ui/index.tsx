@@ -2,7 +2,7 @@ import React, { type ReactNode } from "react";
 import { shallow } from "zustand/shallow";
 import { useWindowsStore } from "@app/store/windows";
 import { TaskbarButton } from "@entities/taskbar-button";
-import { TaskbarButtonStale } from "@shared/ui/buttons/taskbar-button";
+import { TaskbarButtonStale } from "@shared/ui/windows-buttons";
 
 import { restoreWindow } from "../model/restoreWindow";
 

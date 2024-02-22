@@ -1,16 +1,16 @@
 import { type ReactNode } from "react";
 import { ButtonWithHoverActiveStaleStates } from "@entities/button-with-states";
 import {
-  MinimizeWindowActive,
-  MinimizeWindowHover,
-  MinimizeWindowStale,
-  CloseWindowActive,
-  CloseWindowHover,
-  CloseWindowStale,
-  MaximizeWindowActive,
-  MaximizeWindowHover,
-  MaximizeWindowStale,
-} from "@shared/ui/buttons";
+  MinimizeWindowIconActive,
+  MinimizeWindowIconHover,
+  MinimizeWindowIconStale,
+  CloseWindowIconActive,
+  CloseWindowIconHover,
+  CloseWindowIconStale,
+  MaximizeWindowIconActive,
+  MaximizeWindowIconHover,
+  MaximizeWindowIconStale,
+} from "@shared/ui/windows-icons";
 
 import "./styles.scss";
 
@@ -23,9 +23,9 @@ const windowActionButtons: WindowActionButtonScheme = {
     return (
       <ButtonWithHoverActiveStaleStates
         onClick={onClick}
-        active={<CloseWindowActive />}
-        hover={<CloseWindowHover />}
-        stale={<CloseWindowStale />}
+        active={<CloseWindowIconActive />}
+        hover={<CloseWindowIconHover />}
+        stale={<CloseWindowIconStale />}
       />
     );
   },
@@ -33,9 +33,9 @@ const windowActionButtons: WindowActionButtonScheme = {
     return (
       <ButtonWithHoverActiveStaleStates
         onClick={onClick}
-        active={<MaximizeWindowActive />}
-        hover={<MaximizeWindowHover />}
-        stale={<MaximizeWindowStale />}
+        active={<MaximizeWindowIconActive />}
+        hover={<MaximizeWindowIconHover />}
+        stale={<MaximizeWindowIconStale />}
       />
     );
   },
@@ -43,9 +43,9 @@ const windowActionButtons: WindowActionButtonScheme = {
     return (
       <ButtonWithHoverActiveStaleStates
         onClick={onClick}
-        active={<MinimizeWindowActive />}
-        hover={<MinimizeWindowHover />}
-        stale={<MinimizeWindowStale />}
+        active={<MinimizeWindowIconActive />}
+        hover={<MinimizeWindowIconHover />}
+        stale={<MinimizeWindowIconStale />}
       />
     );
   },

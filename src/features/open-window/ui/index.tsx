@@ -1,9 +1,9 @@
 import { type ReactNode } from "react";
 import { openWindow } from "../model/closeWindow";
 import { TahomaTextElement } from "@shared/ui/text-elements";
+import { NewWindow } from "@shared/types/Window.interface";
 
 import "./styles.scss";
-import { NewWindow } from "@shared/types/Window.interface";
 
 function OpenWindow(props: NewWindow): ReactNode {
   return (

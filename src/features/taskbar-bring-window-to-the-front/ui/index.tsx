@@ -1,6 +1,6 @@
 import React, { type ReactNode } from "react";
 import { minimizeWindow } from "../model/bringWindowToTheFront";
-import { TaskbarButtonStale } from "@shared/ui/buttons/taskbar-button";
+import { TaskbarButtonStale } from "@shared/ui/windows-buttons";
 import { useWindowsStore } from "@app/store/windows";
 import { shallow } from "zustand/shallow";
 import { TaskbarButton } from "@entities/taskbar-button";
