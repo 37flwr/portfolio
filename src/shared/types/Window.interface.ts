@@ -1,6 +1,6 @@
-import { ReactNode, type ReactElement } from "react";
+import { type ReactElement } from "react";
 
-export type WindowStates = "opened" | "minimized" | "maximized";
+export type WindowStates = "opened" | "minimized" | "expanded";
 
 export interface Window {
   windowId: string;

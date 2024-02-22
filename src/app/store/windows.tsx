@@ -16,6 +16,7 @@ interface WindowsStore {
     windowId: string,
     { x, y }: { x: number; y: number }
   ) => void;
+  expandWindow: (windowId: string) => void;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -134,6 +135,21 @@ const store = (set: any): WindowsStore => ({
             ? highestZIndex
             : highestZIndex + 1,
       };
+
+      return {
+        windows: [...newWindows],
+      };
+    });
+  },
+  expandWindow: (windowId) => {
+    set((state: WindowsStore) => {
+      const modifiedWindowIdx = state.windows.findIndex(
+        (window) => window.windowId === windowId
+      );
+      const newWindows = [...state.windows];
+      newWindows[modifiedWindowIdx].windowState = "expanded";
+      newWindows[modifiedWindowIdx].coordinates.z =
+        findBiggestZIndex(state.windows) + 1;
 
       return {
         windows: [...newWindows],
