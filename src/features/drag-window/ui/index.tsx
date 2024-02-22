@@ -27,7 +27,7 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
       bounds="parent"
       handle=".window__title-bar"
       defaultPosition={window.coordinates}
-      grid={[10, 10]}
+      grid={[2, 2]}
       scale={1}
       onStart={() => {
         changeWindowPosition(windowId, window.coordinates);

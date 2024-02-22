@@ -7,7 +7,7 @@ import { NewWindow } from "@shared/types/Window.interface";
 
 function OpenWindow(props: NewWindow): ReactNode {
   return (
-    <button className="desktop-icon" onClick={() => openWindow(props)}>
+    <button className="desktop-icon" onDoubleClick={() => openWindow(props)}>
       <div className="desktop-icon__img">{props.Icon}</div>
       <TahomaTextElement className="desktop-icon__title">
         {props.title}

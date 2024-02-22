@@ -12,7 +12,7 @@ export interface Window {
 }
 
 export interface NewWindow {
-  Icon: ReactNode;
+  Icon: ReactElement;
   title: string;
   Content: ReactElement;
 }

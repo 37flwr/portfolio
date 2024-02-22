@@ -5,8 +5,6 @@ import { NewWindow, Window } from "@shared/types/Window.interface";
 import { findBiggestZIndex } from "@shared/lib/getWindowDetails";
 import testIcon from "@shared/assets/icons/minimize-active.svg";
 
-type WindowStates = "opened" | "minimized";
-
 interface WindowsStore {
   windows: Array<Window>;
   openWindow: (newWindowInfo: NewWindow) => void;
