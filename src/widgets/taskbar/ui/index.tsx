@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import { useWindowsStore } from "@app/store/windows";
 import { OpenStartMenuButton } from "@features/open-start-menu";
-import { TaskbarButton } from "@features/flip-window-state";
+import { TaskbarButton } from "./TaskbarButton";
 
 import "./styles.scss";
 

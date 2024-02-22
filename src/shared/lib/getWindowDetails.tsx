@@ -31,6 +31,13 @@ export const getWindowCoordinates = (windowId: string) => {
   return coordinates;
 };
 
+export const getWindowTitle = (windowId: string) => {
+  const windowTitle = useWindowsStore
+    .getState()
+    .windows.filter((window) => window.windowId === windowId)[0].windowTitle;
+  return windowTitle;
+};
+
 export const findBiggestZIndex = (windows: Array<Window>) => {
   let maxValue = Number.MIN_VALUE;
   for (let i = 0; i < windows.length; i++) {

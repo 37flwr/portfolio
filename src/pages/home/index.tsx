@@ -6,6 +6,7 @@ import { Taskbar } from "@widgets/taskbar";
 import wallpaper from "@shared/assets/images/wallpaper.jpeg";
 
 import "./styles.scss";
+import { DesktopApplications } from "@widgets/applications";
 
 function Home(): ReactNode {
   const visibleWindows = useWindowsStore(
@@ -15,13 +16,16 @@ function Home(): ReactNode {
   );
 
   return (
-    <div className="page">
-      {visibleWindows.map((window) => (
-        <Window key={window.windowId} windowId={window.windowId} />
-      ))}
+    <>
+      <div className="desktop">
+        <DesktopApplications />
+        {visibleWindows.map((window) => (
+          <Window key={window.windowId} windowId={window.windowId} />
+        ))}
+      </div>
       <Taskbar />
       <img className="wallpaper" src={wallpaper} alt="" />
-    </div>
+    </>
   );
 }
 

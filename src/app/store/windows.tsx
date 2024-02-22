@@ -1,18 +1,19 @@
-import { type ReactNode } from "react";
 import { createWithEqualityFn } from "zustand/traditional";
 import { persist } from "zustand/middleware";
-import { Window } from "@shared/types/Window.interface";
+import { v4 as uuid } from "uuid";
+import { NewWindow, Window } from "@shared/types/Window.interface";
 import { findBiggestZIndex } from "@shared/lib/getWindowDetails";
+import testIcon from "@shared/assets/icons/minimize-active.svg";
 
 type WindowStates = "opened" | "minimized";
 
 interface WindowsStore {
   windows: Array<Window>;
-  openWindow: (content: ReactNode) => void;
+  openWindow: (newWindowInfo: NewWindow) => void;
   closeWindow: (windowId: string) => void;
-  changeWindowStatusTo: (windowId: string, state: WindowStates) => void;
+  minimizeWindow: (windowId: string) => void;
+  restoreWindow: (windowId: string) => void;
   bringWindowToTheFront: (windowId: string) => void;
-  bringWindowToTheBack: (windowId: string) => void;
   changeWindowPosition: (
     windowId: string,
     { x, y }: { x: number; y: number }
@@ -27,6 +28,7 @@ const store = (set: any): WindowsStore => ({
       windowTitle: "testtest",
       windowState: "opened",
       windowContent: <div>123</div>,
+      windowIcon: <img src={testIcon} alt="" />,
       coordinates: { x: 10, y: 100, z: 1 },
     },
     {
@@ -34,6 +36,7 @@ const store = (set: any): WindowsStore => ({
       windowTitle: "testtest2",
       windowState: "opened",
       windowContent: <div>1233</div>,
+      windowIcon: <img src={testIcon} alt="" />,
       coordinates: { x: 100, y: 10, z: 2 },
     },
     {
@@ -41,13 +44,27 @@ const store = (set: any): WindowsStore => ({
       windowTitle: "testtest21",
       windowState: "minimized",
       windowContent: <div>minim</div>,
+      windowIcon: <img src={testIcon} alt="" />,
       coordinates: { x: 100, y: 300, z: 0 },
     },
   ],
-  openWindow: (content) => {
-    set((state: WindowsStore) => ({
-      windows: [...state.windows, content],
-    }));
+  openWindow: (newWindowInfo) => {
+    set((state: WindowsStore) => {
+      const newWindow: Window = {
+        windowId: uuid(),
+        windowTitle: newWindowInfo.title,
+        windowState: "opened",
+        windowContent: newWindowInfo.Content,
+        windowIcon: newWindowInfo.Icon,
+        coordinates: {
+          x: 100,
+          y: 100,
+          z: findBiggestZIndex(state.windows) + 1,
+        },
+      };
+
+      return { windows: [...state.windows, newWindow] };
+    });
   },
   closeWindow: (windowId) => {
     set((state: WindowsStore) => ({
@@ -55,19 +72,6 @@ const store = (set: any): WindowsStore => ({
         ...state.windows.filter((window) => window.windowId !== windowId),
       ],
     }));
-  },
-  changeWindowStatusTo: (windowId, status) => {
-    set((state: WindowsStore) => {
-      const modifiedWindowIdx = state.windows.findIndex(
-        (window) => window.windowId === windowId
-      );
-      const newWindows = [...state.windows];
-      newWindows[modifiedWindowIdx].windowState = status;
-
-      return {
-        windows: [...newWindows],
-      };
-    });
   },
   bringWindowToTheFront: (windowId) => {
     set((state: WindowsStore) => {
@@ -84,7 +88,7 @@ const store = (set: any): WindowsStore => ({
       };
     });
   },
-  bringWindowToTheBack: (windowId) => {
+  minimizeWindow: (windowId) => {
     set((state: WindowsStore) => {
       const modifiedWindowIdx = state.windows.findIndex(
         (window) => window.windowId === windowId
@@ -92,6 +96,23 @@ const store = (set: any): WindowsStore => ({
 
       const newWindows = [...state.windows];
       newWindows[modifiedWindowIdx].coordinates.z = 0;
+      newWindows[modifiedWindowIdx].windowState = "minimized";
+
+      return {
+        windows: [...newWindows],
+      };
+    });
+  },
+  restoreWindow: (windowId) => {
+    set((state: WindowsStore) => {
+      const modifiedWindowIdx = state.windows.findIndex(
+        (window) => window.windowId === windowId
+      );
+
+      const newWindows = [...state.windows];
+      newWindows[modifiedWindowIdx].coordinates.z =
+        findBiggestZIndex(state.windows) + 1;
+      newWindows[modifiedWindowIdx].windowState = "opened";
 
       return {
         windows: [...newWindows],
