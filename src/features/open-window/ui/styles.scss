@@ -19,10 +19,7 @@
   &__title {
     width: 100%;
     display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: var(--color-white);
-    font-size: 15px;
+    font-size: 11px;
   }
 }

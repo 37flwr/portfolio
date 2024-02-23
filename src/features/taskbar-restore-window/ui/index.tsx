@@ -5,6 +5,7 @@ import { TaskbarButton } from "@entities/taskbar-button";
 import { TaskbarButtonStale } from "@shared/ui/windows-buttons";
 
 import { restoreWindow } from "../model/restoreWindow";
+import { applicationIconScheme } from "@entities/applications";
 
 function RestoreWindow({ windowId }: { windowId: string }): ReactNode {
   const window = useWindowsStore(
@@ -16,10 +17,7 @@ function RestoreWindow({ windowId }: { windowId: string }): ReactNode {
   return (
     <TaskbarButton onClick={() => restoreWindow(windowId)}>
       <TaskbarButtonStale
-        Icon={React.createElement(
-          window.windowIcon.type,
-          window.windowIcon.props
-        )}
+        Icon={applicationIconScheme[window.windowIcon]}
         title={window.windowTitle}
       />
     </TaskbarButton>

@@ -3,7 +3,6 @@ import { persist } from "zustand/middleware";
 import { v4 as uuid } from "uuid";
 import { NewWindow, Window } from "@shared/types/Window.interface";
 import { findBiggestZIndex } from "@shared/lib/getWindowDetails";
-import testIcon from "@shared/assets/icons/minimize-active.svg";
 
 interface WindowsStore {
   windows: Array<Window>;
@@ -27,10 +26,10 @@ const store = (set: any): WindowsStore => ({
       windowId: "1",
       windowTitle: "testtest",
       windowState: "opened",
-      windowContent: <div>123</div>,
+      application: "none",
       windowSize: { w: 640, h: 500 },
       isExpanded: false,
-      windowIcon: <img src={testIcon} alt="" />,
+      windowIcon: "none",
       coordinates: { x: 10, y: 100, z: 1 },
     },
     {
@@ -39,18 +38,18 @@ const store = (set: any): WindowsStore => ({
       windowState: "opened",
       windowSize: { w: 640, h: 400 },
       isExpanded: false,
-      windowContent: <div>1233</div>,
-      windowIcon: <img src={testIcon} alt="" />,
+      application: "none",
+      windowIcon: "none",
       coordinates: { x: 100, y: 10, z: 2 },
     },
     {
       windowId: "3",
       windowTitle: "testtest21",
       windowState: "minimized",
-      windowContent: <div>minim</div>,
+      application: "none",
       windowSize: { w: 640, h: 300 },
       isExpanded: false,
-      windowIcon: <img src={testIcon} alt="" />,
+      windowIcon: "none",
       coordinates: { x: 100, y: 300, z: 0 },
     },
   ],
@@ -60,10 +59,10 @@ const store = (set: any): WindowsStore => ({
         windowId: uuid(),
         windowTitle: newWindowInfo.title,
         windowState: "opened",
-        windowContent: newWindowInfo.Content,
+        application: newWindowInfo.application,
         windowSize: { w: 640, h: 400 },
         isExpanded: false,
-        windowIcon: newWindowInfo.Icon,
+        windowIcon: newWindowInfo.icon,
         coordinates: {
           x: 100,
           y: 100,

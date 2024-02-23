@@ -1,20 +1,20 @@
-import { type ReactElement } from "react";
+import { ApplicationIcons, Applications } from "./Applications.interface";
 
 export type WindowStates = "opened" | "minimized" | "expanded";
 
 export interface Window {
   windowId: string;
-  windowIcon: ReactElement;
+  windowIcon: keyof ApplicationIcons;
   windowTitle: string;
   windowSize: { w: number; h: number };
   isExpanded: boolean;
   windowState: WindowStates;
-  windowContent: ReactElement;
+  application: keyof Applications;
   coordinates: { x: number; y: number; z: number };
 }
 
 export interface NewWindow {
-  Icon: ReactElement;
+  icon: keyof ApplicationIcons;
   title: string;
-  Content: ReactElement;
+  application: keyof Applications;
 }

@@ -1,4 +1,5 @@
 import React, { type ReactNode } from "react";
+import cn from "classnames";
 import { shallow } from "zustand/shallow";
 import { useWindowsStore } from "@app/store/windows";
 import { TrebuchetTextElement } from "@shared/ui/text-elements";
@@ -6,6 +7,7 @@ import { TrebuchetTextElement } from "@shared/ui/text-elements";
 import { WindowActionButtons } from "./WindowActionButtons";
 import "./styles.scss";
 import { ExpandedWindowActionButtons } from "./ExpandedWindowActionButtons";
+import { applicationScheme } from "@entities/applications";
 
 function WindowFrame({
   windowId,
@@ -22,7 +24,7 @@ function WindowFrame({
 
   return (
     <div
-      className={`window ${className}`}
+      className={cn("window", className)}
       style={{ width: window.windowSize.w, height: window.windowSize.h }}
     >
       <div className="window__title-bar">
@@ -38,10 +40,7 @@ function WindowFrame({
         </div>
       </div>
       <div className="window__content">
-        {React.createElement(
-          window.windowContent.type,
-          window.windowContent.props
-        )}
+        {applicationScheme[window.application] || `Couldn't load application`}
       </div>
     </div>
   );

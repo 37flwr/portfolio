@@ -35,8 +35,8 @@
 
   &__title-bar {
     background: #006fea;
-    line-height: 25px;
-    height: 25px;
+    line-height: var(--window-title-bar-height);
+    height: var(--window-title-bar-height);
     position: relative;
     margin: 0;
     padding: 0;
@@ -90,10 +90,13 @@
   }
 
   &__content {
+    width: 100%;
+    height: calc(100% - var(--window-title-bar-height));
+    box-sizing: border-box;
     flex: 1;
     margin: 0;
     border: 1px solid #91adc6;
-    margin: 0 2px 2px;
+    padding: 0 2px 2px;
   }
 }
 

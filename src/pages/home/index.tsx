@@ -1,12 +1,12 @@
 import { type ReactNode } from "react";
 import { shallow } from "zustand/shallow";
 import { useWindowsStore } from "@app/store/windows";
+import { DesktopApplications } from "@widgets/applications";
 import { Window } from "@widgets/window";
 import { Taskbar } from "@widgets/taskbar";
 import wallpaper from "@shared/assets/images/wallpaper.jpeg";
 
 import "./styles.scss";
-import { DesktopApplications } from "@widgets/applications";
 
 function Home(): ReactNode {
   const visibleWindows = useWindowsStore(

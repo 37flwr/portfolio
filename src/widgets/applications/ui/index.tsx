@@ -1,5 +1,4 @@
 import { type ReactNode } from "react";
-import applicationOne from "@shared/assets/images/microsoft-logo.png";
 import { OpenWindowButton } from "@features/open-window";
 import { NewWindow } from "@shared/types/Window.interface";
 
@@ -7,34 +6,14 @@ import "./styles.scss";
 
 const applications: Array<NewWindow> = [
   {
-    Icon: <img src={applicationOne} />,
-    title: "Application 1",
-    Content: <div>123</div>,
+    icon: "pdf",
+    title: "My_CV.pdf",
+    application: "cv",
   },
   {
-    Icon: <img src={applicationOne} />,
-    title: "Application 1",
-    Content: <div>123</div>,
-  },
-  {
-    Icon: <img src={applicationOne} />,
-    title: "Application 1",
-    Content: <div>123</div>,
-  },
-  {
-    Icon: <img src={applicationOne} />,
-    title: "Application 1",
-    Content: <div>123</div>,
-  },
-  {
-    Icon: <img src={applicationOne} />,
-    title: "Application 1",
-    Content: <div>123</div>,
-  },
-  {
-    Icon: <img src={applicationOne} />,
-    title: "Application 1",
-    Content: <div>123</div>,
+    icon: "secret",
+    title: "My Ledger Mnemonic",
+    application: "rickAstley",
   },
 ];
 
