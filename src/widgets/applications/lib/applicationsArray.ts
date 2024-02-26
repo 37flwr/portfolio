@@ -11,4 +11,9 @@ export const applicationsArray: Array<OpenWindowDTO> = [
         title: 'My Ledger Mnemonic',
         application: 'rickAstley',
     },
+    {
+        icon: 'folder',
+        title: 'Certificates',
+        application: 'certificates',
+    },
 ]

@@ -11,3 +11,10 @@
         local('Trebuchet'),
         url(./fonts/Trebuchet-MS.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: 'Noto Sans';
+    src:
+        local('Noto Sans'),
+        url(./fonts/NotoSans.ttf) format('truetype');
+}

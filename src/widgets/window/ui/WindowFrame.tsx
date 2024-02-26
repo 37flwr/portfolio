@@ -1,6 +1,9 @@
 import { type ReactNode } from 'react'
 import cn from 'classnames'
-import { applicationScheme } from '@entities/applications'
+import {
+    applicationIconScheme,
+    applicationScheme,
+} from '@widgets/applications/applications'
 import { WindowActionButtons } from './WindowActionButtons'
 import { useWindowContext } from '../model/windowContext'
 import { TrebuchetTextElement } from '@shared/ui/text-elements'
@@ -15,9 +18,14 @@ function WindowFrame({ className }: { className?: string }): ReactNode {
             style={{ width: window.windowSize.w, height: window.windowSize.h }}
         >
             <div className="window__title-bar">
-                <TrebuchetTextElement className="window__title-bar__text">
-                    {window.windowTitle}
-                </TrebuchetTextElement>
+                <div className="window__title-bar__title">
+                    <div className="window__title-bar__title__icon">
+                        {applicationIconScheme[window.windowIcon]}
+                    </div>
+                    <TrebuchetTextElement className="window__title-bar__title__text">
+                        {window.windowTitle}
+                    </TrebuchetTextElement>
+                </div>
                 <div className="window__title-bar__controls">
                     <WindowActionButtons />
                 </div>
