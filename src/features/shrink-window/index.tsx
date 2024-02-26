@@ -1,1 +1,1 @@
-export { ShrinkWindow as ShrinkWindowButton } from "./ui";
+export { ShrinkWindow as ShrinkWindowButton } from './ui'

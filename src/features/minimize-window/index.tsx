@@ -1,1 +1,1 @@
-export { MinimizeWindow as MinimizeWindowButton } from "./ui";
+export { MinimizeWindow as MinimizeWindowButton } from './ui'

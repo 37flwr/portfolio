@@ -1,1 +1,1 @@
-export { BringWindowToTheFront as TaskbarBringWindowToTheFrontButton } from "./ui";
+export { BringWindowToTheFront as TaskbarBringWindowToTheFrontButton } from './ui'

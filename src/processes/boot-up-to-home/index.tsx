@@ -1,13 +1,15 @@
-import { type ReactNode } from "react";
-import { useBootUpStateStore } from "@app/store/bootUp";
-import { BootUpPage, HomePage } from "@pages/index";
+import { type ReactNode } from 'react'
+import { useBootUpStateStore } from '@app/store/bootUp'
+import { BootUpPage, HomePage } from '@pages/index'
 
 function BootUpToHomePage(): ReactNode {
-  const showedBootUp = useBootUpStateStore((store) => store.showedBootUpScreen);
+    const showedBootUp = useBootUpStateStore(
+        (store) => store.showedBootUpScreen
+    )
 
-  if (!showedBootUp) return <BootUpPage />;
+    if (!showedBootUp) return <BootUpPage />
 
-  return <HomePage />;
+    return <HomePage />
 }
 
-export { BootUpToHomePage };
+export { BootUpToHomePage }

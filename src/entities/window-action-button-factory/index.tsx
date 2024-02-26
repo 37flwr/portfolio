@@ -1,1 +1,1 @@
-export { WindowActionButtonFactory as WindowActionButtonFactory } from "./ui";
+export { WindowActionButtonFactory as WindowActionButtonFactory } from './ui'

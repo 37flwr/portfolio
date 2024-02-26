@@ -1,49 +1,49 @@
 .system-tray {
-  width: var(--system-tray-width);
-  height: var(--taskbar-height);
-  background-color: #0b77e9;
-  background: linear-gradient(
-    to bottom,
-    #0c59b9 1%,
-    #139ee9 6%,
-    #18b5f2 10%,
-    #139beb 14%,
-    #1290e8 19%,
-    #0d8dea 63%,
-    #0d9ff1 81%,
-    #0f9eed 88%,
-    #119be9 91%,
-    #1392e2 94%,
-    #137ed7 97%,
-    #095bc9 100%
-  );
-  box-sizing: border-box;
-  border-left: 1px solid #1042af;
-  box-shadow: inset 1px 0 1px #18bbff;
-  padding-inline: 10px;
+    width: var(--system-tray-width);
+    height: var(--taskbar-height);
+    background-color: #0b77e9;
+    background: linear-gradient(
+        to bottom,
+        #0c59b9 1%,
+        #139ee9 6%,
+        #18b5f2 10%,
+        #139beb 14%,
+        #1290e8 19%,
+        #0d8dea 63%,
+        #0d9ff1 81%,
+        #0f9eed 88%,
+        #119be9 91%,
+        #1392e2 94%,
+        #137ed7 97%,
+        #095bc9 100%
+    );
+    box-sizing: border-box;
+    border-left: 1px solid #1042af;
+    box-shadow: inset 1px 0 1px #18bbff;
+    padding-inline: 10px;
 
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: flex-end;
-
-  &__icons {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
-    gap: 2px;
+    justify-content: flex-end;
 
-    &__element {
-      width: 15px;
-      height: 15px;
+    &__icons {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+
+        &__element {
+            width: 15px;
+            height: 15px;
+        }
     }
-  }
 
-  &__time {
-    margin-inline-start: 10px;
-    margin-inline-end: 5px;
-    color: #fff;
-    font-size: 15px;
-    font-weight: lighter;
-    text-shadow: none;
-  }
+    &__time {
+        margin-inline-start: 10px;
+        margin-inline-end: 5px;
+        color: #fff;
+        font-size: 15px;
+        font-weight: lighter;
+        text-shadow: none;
+    }
 }

@@ -1,1 +1,1 @@
-export { CloseWindow as CloseWindowButton } from "./ui";
+export { CloseWindow as CloseWindowButton } from './ui'

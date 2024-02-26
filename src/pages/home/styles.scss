@@ -1,14 +1,14 @@
 .wallpaper {
-  position: absolute;
-  top: 0;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    z-index: -1;
 
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
 
 .desktop {
-  width: 100vw;
-  height: calc(100vh - var(--taskbar-height));
+    width: 100vw;
+    height: calc(100vh - var(--taskbar-height));
 }

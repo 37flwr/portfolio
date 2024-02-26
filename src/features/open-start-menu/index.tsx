@@ -1,1 +1,1 @@
-export { OpenStartMenuButton as OpenStartMenuButton } from "./ui";
+export { OpenStartMenuButton as OpenStartMenuButton } from './ui'

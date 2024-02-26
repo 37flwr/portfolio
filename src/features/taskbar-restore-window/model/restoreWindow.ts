@@ -1,7 +1,7 @@
-import { useWindowsStore } from "@app/store/windows";
+import { useWindowsStore } from '@app/store/windows'
 
 export const restoreWindow = (windowId: string) => {
-  const restoreWindow = useWindowsStore.getState().restoreWindow;
+    const restoreWindow = useWindowsStore.getState().restoreWindow
 
-  restoreWindow(windowId);
-};
+    restoreWindow(windowId)
+}

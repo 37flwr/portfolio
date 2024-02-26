@@ -1,46 +1,48 @@
 .taskbar {
-  position: fixed;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    #1f2f86 0,
-    #3165c4 3%,
-    #3682e5 6%,
-    #4490e6 10%,
-    #3883e5 12%,
-    #2b71e0 15%,
-    #2663da 18%,
-    #235bd6 20%,
-    #2258d5 23%,
-    #2157d6 38%,
-    #245ddb 54%,
-    #2562df 86%,
-    #245fdc 89%,
-    #2158d4 92%,
-    #1d4ec0 95%,
-    #1941a5 98%
-  );
-  width: 100vw;
-  height: var(--taskbar-height);
-
-  display: flex;
-  align-items: center;
-  display: grid;
-  grid-template-columns: var(--start-button-width) auto var(--system-tray-width);
-
-  &__start-button {
+    position: fixed;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        #1f2f86 0,
+        #3165c4 3%,
+        #3682e5 6%,
+        #4490e6 10%,
+        #3883e5 12%,
+        #2b71e0 15%,
+        #2663da 18%,
+        #235bd6 20%,
+        #2258d5 23%,
+        #2157d6 38%,
+        #245ddb 54%,
+        #2562df 86%,
+        #245fdc 89%,
+        #2158d4 92%,
+        #1d4ec0 95%,
+        #1941a5 98%
+    );
+    width: 100vw;
     height: var(--taskbar-height);
-    width: var(--start-button-width);
-  }
 
-  &__system-tray {
-    height: var(--taskbar-height);
-    width: var(--system-tray-width);
     display: flex;
-  }
+    align-items: center;
+    display: grid;
+    grid-template-columns: var(--start-button-width) auto var(
+            --system-tray-width
+        );
 
-  &__buttons {
-    padding-inline: 10px;
-    display: flex;
-  }
+    &__start-button {
+        height: var(--taskbar-height);
+        width: var(--start-button-width);
+    }
+
+    &__system-tray {
+        height: var(--taskbar-height);
+        width: var(--system-tray-width);
+        display: flex;
+    }
+
+    &__buttons {
+        padding-inline: 10px;
+        display: flex;
+    }
 }

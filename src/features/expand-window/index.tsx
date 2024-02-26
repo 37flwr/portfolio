@@ -1,1 +1,1 @@
-export { ExpandWindow as ExpandWindowButton } from "./ui";
+export { ExpandWindow as ExpandWindowButton } from './ui'

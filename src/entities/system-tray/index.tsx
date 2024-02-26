@@ -1,1 +1,1 @@
-export { SystemTray as SystemTray } from "./ui";
+export { SystemTray as SystemTray } from './ui'

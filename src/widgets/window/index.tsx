@@ -1,1 +1,1 @@
-export { Window as Window } from "./ui";
+export { Window as Window } from './ui'

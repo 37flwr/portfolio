@@ -1,7 +1,7 @@
-import { useWindowsStore } from "@app/store/windows";
+import { useWindowsStore } from '@app/store/windows'
 
 export const minimizeWindow = (windowId: string) => {
-  const minimizeWindow = useWindowsStore.getState().minimizeWindow;
+    const minimizeWindow = useWindowsStore.getState().minimizeWindow
 
-  minimizeWindow(windowId);
-};
+    minimizeWindow(windowId)
+}

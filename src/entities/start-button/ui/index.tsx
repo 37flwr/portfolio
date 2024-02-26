@@ -1,26 +1,26 @@
-import { type ReactNode } from "react";
-import { ButtonWithHoverActiveStaleStates } from "@entities/button-with-states";
+import { type ReactNode } from 'react'
+import { ButtonWithHoverActiveStaleStates } from '@entities/button-with-states'
 import {
-  StartMenuIconActive,
-  StartMenuIconHover,
-  StartMenuIconStale,
-} from "@shared/ui/windows-icons";
-import "./styles.scss";
+    StartMenuIconActive,
+    StartMenuIconHover,
+    StartMenuIconStale,
+} from '@shared/ui/windows-icons'
+import './styles.scss'
 
 function StartButtonWithHoverActiveStaleStates({
-  onClick,
+    onClick,
 }: {
-  onClick: () => void;
+    onClick: () => void
 }): ReactNode {
-  return (
-    <ButtonWithHoverActiveStaleStates
-      className="start-button"
-      onClick={onClick}
-      active={<StartMenuIconActive />}
-      hover={<StartMenuIconHover />}
-      stale={<StartMenuIconStale />}
-    />
-  );
+    return (
+        <ButtonWithHoverActiveStaleStates
+            className="start-button"
+            onClick={onClick}
+            active={<StartMenuIconActive />}
+            hover={<StartMenuIconHover />}
+            stale={<StartMenuIconStale />}
+        />
+    )
 }
 
-export { StartButtonWithHoverActiveStaleStates };
+export { StartButtonWithHoverActiveStaleStates }

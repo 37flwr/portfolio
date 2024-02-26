@@ -1,1 +1,1 @@
-export { Applications as DesktopApplications } from "./ui";
+export { Applications as DesktopApplications } from './ui'

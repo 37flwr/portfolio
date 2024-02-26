@@ -1,7 +1,7 @@
-import { useWindowsStore } from "@app/store/windows";
+import { useWindowsStore } from '@app/store/windows'
 
 export const closeWindow = (windowId: string) => {
-  const closeWindow = useWindowsStore.getState().closeWindow;
+    const closeWindow = useWindowsStore.getState().closeWindow
 
-  closeWindow(windowId);
-};
+    closeWindow(windowId)
+}

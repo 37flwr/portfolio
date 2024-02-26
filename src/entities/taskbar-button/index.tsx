@@ -1,1 +1,1 @@
-export { TaskbarButton as TaskbarButton } from "./ui";
+export { TaskbarButton as TaskbarButton } from './ui'

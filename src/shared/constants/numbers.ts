@@ -1,2 +1,2 @@
-export const BOOT_UP_TIMEOUT = 7000;
-export const GREETING_SCREEN_TIMEOUT = 4000;
+export const BOOT_UP_TIMEOUT = 7000
+export const GREETING_SCREEN_TIMEOUT = 4000
