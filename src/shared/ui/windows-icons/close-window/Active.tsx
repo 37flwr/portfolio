@@ -1,8 +1,8 @@
-import { type ReactNode } from "react";
-import closeButtonActive from "@shared/assets/icons/close-button-active.svg";
+import { type ReactNode } from 'react'
+import closeButtonActive from '@shared/assets/icons/close-button-active.svg'
 
 function CloseWindowActive({ className }: { className?: string }): ReactNode {
-  return <img src={closeButtonActive} className={className} alt="" />;
+    return <img src={closeButtonActive} className={className} alt="" />
 }
 
-export { CloseWindowActive };
+export { CloseWindowActive }

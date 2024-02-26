@@ -1,1 +1,1 @@
-export { StartButtonWithHoverActiveStaleStates as StartButton } from "./ui";
+export { StartButtonWithHoverActiveStaleStates as StartButton } from './ui'

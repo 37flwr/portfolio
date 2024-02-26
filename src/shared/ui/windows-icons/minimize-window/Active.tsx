@@ -1,12 +1,12 @@
-import { type ReactNode } from "react";
-import minimizeButtonActive from "@shared/assets/icons/minimize-active.svg";
+import { type ReactNode } from 'react'
+import minimizeButtonActive from '@shared/assets/icons/minimize-active.svg'
 
 function MinimizeWindowActive({
-  className,
+    className,
 }: {
-  className?: string;
+    className?: string
 }): ReactNode {
-  return <img src={minimizeButtonActive} className={className} alt="" />;
+    return <img src={minimizeButtonActive} className={className} alt="" />
 }
 
-export { MinimizeWindowActive };
+export { MinimizeWindowActive }

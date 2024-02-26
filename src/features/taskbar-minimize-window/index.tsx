@@ -1,1 +1,1 @@
-export { MinimizeWindow as TaskbarMinimizeWindowButton } from "./ui";
+export { MinimizeWindow as TaskbarMinimizeWindowButton } from './ui'

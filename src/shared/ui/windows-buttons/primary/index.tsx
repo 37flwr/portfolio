@@ -1,13 +1,13 @@
-import { type PropsWithChildren, type ReactNode } from "react";
+import { type PropsWithChildren, type ReactNode } from 'react'
 
-import "./styles.scss";
+import './styles.scss'
 
 function PrimaryButton({ children }: PropsWithChildren): ReactNode {
-  return (
-    <div className="primary-button_wrapper">
-      <button className="primary-button">{children}</button>
-    </div>
-  );
+    return (
+        <div className="primary-button_wrapper">
+            <button className="primary-button">{children}</button>
+        </div>
+    )
 }
 
-export { PrimaryButton };
+export { PrimaryButton }

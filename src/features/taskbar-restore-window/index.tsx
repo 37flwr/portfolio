@@ -1,1 +1,1 @@
-export { RestoreWindow as TaskbarRestoreWindowButton } from "./ui";
+export { RestoreWindow as TaskbarRestoreWindowButton } from './ui'

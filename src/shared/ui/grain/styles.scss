@@ -1,16 +1,16 @@
 .grained {
-  position: relative;
-  width: 100%;
-  height: 100%;
-
-  .grain {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
-    opacity: 0.1;
-  }
 
-  .grain-children {
-    mix-blend-mode: multiply;
-  }
+    .grain {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+    }
+
+    .grain-children {
+        mix-blend-mode: multiply;
+    }
 }

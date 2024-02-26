@@ -1,10 +1,10 @@
-import { useWindowsStore } from "@app/store/windows";
+import { useWindowsStore } from '@app/store/windows'
 
 export const changeWindowPosition = (
-  windowId: string,
-  coordinates: { x: number; y: number }
+    windowId: string,
+    coordinates: { x: number; y: number }
 ) => {
-  const changeWindowPosition = useWindowsStore.getState().changeWindowPosition;
+    const changeWindowPosition = useWindowsStore.getState().changeWindowPosition
 
-  changeWindowPosition(windowId, coordinates);
-};
+    changeWindowPosition(windowId, coordinates)
+}

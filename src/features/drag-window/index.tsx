@@ -1,1 +1,1 @@
-export { DraggableWindow as DraggableWindow } from "./ui";
+export { DraggableWindow as DraggableWindow } from './ui'

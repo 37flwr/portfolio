@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
-type ApplicationTitles = "none" | "cv" | "rickAstley";
+type ApplicationTitles = 'none' | 'cv' | 'rickAstley'
 
-export type Applications = Record<ApplicationTitles, ReactNode>;
+export type Applications = Record<ApplicationTitles, ReactNode>
 
-type ApplicationIconKeys = "none" | "pdf" | "secret";
+type ApplicationIconKeys = 'none' | 'pdf' | 'secret'
 
-export type ApplicationIcons = Record<ApplicationIconKeys, ReactNode>;
+export type ApplicationIcons = Record<ApplicationIconKeys, ReactNode>
