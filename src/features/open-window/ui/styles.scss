@@ -4,11 +4,11 @@
   gap: 5px;
   justify-content: center;
   align-items: center;
-  width: 55px;
+  width: 65px;
 
   &__img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 
     img {
       width: 100%;
@@ -20,6 +20,6 @@
     width: 100%;
     display: inline-block;
     color: var(--color-white);
-    font-size: 11px;
+    font-size: 12px;
   }
 }

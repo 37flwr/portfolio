@@ -13,8 +13,22 @@ export interface Window {
   coordinates: { x: number; y: number; z: number };
 }
 
-export interface NewWindow {
+export interface OpenWindowDTO {
   icon: keyof ApplicationIcons;
   title: string;
   application: keyof Applications;
 }
+
+export interface WindowDTO {
+  windowId: string;
+}
+
+export type WindowFrameDTO = Pick<
+  Window,
+  | "windowSize"
+  | "windowTitle"
+  | "isExpanded"
+  | "application"
+  | "windowId"
+  | "coordinates"
+> & { className?: string };

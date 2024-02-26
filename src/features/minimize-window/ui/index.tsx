@@ -1,12 +1,9 @@
 import { type ReactNode } from "react";
 import { WindowActionButtonFactory } from "@entities/window-action-button-factory";
 import { minimizeWindow } from "../model/minimizeWindow";
+import { WindowDTO } from "@shared/types/Window.interface";
 
-interface ICloseWindow {
-  windowId: string;
-}
-
-function MinimizeWindow({ windowId }: ICloseWindow): ReactNode {
+function MinimizeWindow({ windowId }: WindowDTO): ReactNode {
   return (
     <WindowActionButtonFactory
       onClick={() => minimizeWindow(windowId)}

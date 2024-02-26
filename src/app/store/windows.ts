@@ -1,12 +1,12 @@
 import { createWithEqualityFn } from "zustand/traditional";
 import { persist } from "zustand/middleware";
 import { v4 as uuid } from "uuid";
-import { NewWindow, Window } from "@shared/types/Window.interface";
+import { OpenWindowDTO, Window } from "@shared/types/Window.interface";
 import { findBiggestZIndex } from "@shared/lib/getWindowDetails";
 
 interface WindowsStore {
   windows: Array<Window>;
-  openWindow: (newWindowInfo: NewWindow) => void;
+  openWindow: (newWindowInfo: OpenWindowDTO) => void;
   closeWindow: (windowId: string) => void;
   minimizeWindow: (windowId: string) => void;
   restoreWindow: (windowId: string) => void;
@@ -21,38 +21,7 @@ interface WindowsStore {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const store = (set: any): WindowsStore => ({
-  windows: [
-    {
-      windowId: "1",
-      windowTitle: "testtest",
-      windowState: "opened",
-      application: "none",
-      windowSize: { w: 640, h: 500 },
-      isExpanded: false,
-      windowIcon: "none",
-      coordinates: { x: 10, y: 100, z: 1 },
-    },
-    {
-      windowId: "2",
-      windowTitle: "testtest2",
-      windowState: "opened",
-      windowSize: { w: 640, h: 400 },
-      isExpanded: false,
-      application: "none",
-      windowIcon: "none",
-      coordinates: { x: 100, y: 10, z: 2 },
-    },
-    {
-      windowId: "3",
-      windowTitle: "testtest21",
-      windowState: "minimized",
-      application: "none",
-      windowSize: { w: 640, h: 300 },
-      isExpanded: false,
-      windowIcon: "none",
-      coordinates: { x: 100, y: 300, z: 0 },
-    },
-  ],
+  windows: [],
   openWindow: (newWindowInfo) => {
     set((state: WindowsStore) => {
       const newWindow: Window = {

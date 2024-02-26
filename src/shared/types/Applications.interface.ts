@@ -2,12 +2,8 @@ import { ReactNode } from "react";
 
 type ApplicationTitles = "none" | "cv" | "rickAstley";
 
-export type Applications = {
-  [key in ApplicationTitles]: ReactNode;
-};
+export type Applications = Record<ApplicationTitles, ReactNode>;
 
 type ApplicationIconKeys = "none" | "pdf" | "secret";
 
-export type ApplicationIcons = {
-  [key in ApplicationIconKeys]: ReactNode;
-};
+export type ApplicationIcons = Record<ApplicationIconKeys, ReactNode>;

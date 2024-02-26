@@ -1,31 +1,31 @@
 import { type ReactNode } from "react";
-import { WindowFrame } from "./WindowFrame";
-import { DraggableWindow } from "@features/drag-window";
 import { useWindowsStore } from "@app/store/windows";
+import { DraggableWindow } from "@features/drag-window";
+import { WindowFrame } from "./WindowFrame";
+import { WindowDTO } from "@shared/types/Window.interface";
+import { WindowContext } from "../model/windowContext";
 
-interface WindowWidget {
-  windowId: string;
-}
-
-function Window({ windowId }: WindowWidget): ReactNode {
-  // const window = getWindow(windowId);
-
+function Window({ windowId }: WindowDTO): ReactNode {
   const window = useWindowsStore((store) =>
     store.windows.filter((window) => window.windowId === windowId)
   )[0];
 
   if (window.isExpanded) {
     return (
-      <div style={{ position: "absolute", zIndex: window.coordinates.z }}>
-        <WindowFrame windowId={windowId} className="expanded" />
-      </div>
+      <WindowContext.Provider value={window}>
+        <div style={{ position: "absolute", zIndex: window.coordinates.z }}>
+          <WindowFrame className="expanded" />
+        </div>
+      </WindowContext.Provider>
     );
   }
 
   return (
-    <DraggableWindow windowId={windowId}>
-      <WindowFrame windowId={windowId} />
-    </DraggableWindow>
+    <WindowContext.Provider value={window}>
+      <DraggableWindow windowId={windowId}>
+        <WindowFrame />
+      </DraggableWindow>
+    </WindowContext.Provider>
   );
 }
 

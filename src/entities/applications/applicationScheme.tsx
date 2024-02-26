@@ -9,7 +9,11 @@ import { RickAstley } from "./ui/RickAstley";
 import { MimetypeSecretIcon } from "@shared/ui/mimetypes/secret";
 
 export const applicationScheme: Applications = {
-  none: <div>_blank</div>,
+  none: (
+    <div style={{ backgroundColor: "#fff", width: "100%", height: "100%" }}>
+      _blank
+    </div>
+  ),
   cv: <CVApplication />,
   rickAstley: <RickAstley />,
 };

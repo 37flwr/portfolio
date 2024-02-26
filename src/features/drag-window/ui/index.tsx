@@ -7,10 +7,9 @@ import {
 import Draggable, { type DraggableData } from "react-draggable";
 import { useWindowsStore } from "@app/store/windows";
 import { changeWindowPosition } from "../model/changeWindowPosition";
+import { WindowDTO } from "@shared/types/Window.interface";
 
-interface IDraggableWindow extends PropsWithChildren {
-  windowId: string;
-}
+type IDraggableWindow = WindowDTO & PropsWithChildren;
 
 function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
   const window = useWindowsStore((state) =>
@@ -27,7 +26,7 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
       bounds="parent"
       handle=".window__title-bar"
       defaultPosition={window.coordinates}
-      grid={[2, 2]}
+      grid={[5, 5]}
       scale={1}
       onStart={() => {
         changeWindowPosition(windowId, window.coordinates);

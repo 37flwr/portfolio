@@ -1,12 +1,9 @@
 import { type ReactNode } from "react";
 import { WindowActionButtonFactory } from "@entities/window-action-button-factory";
 import { closeWindow } from "../model/closeWindow";
+import { WindowDTO } from "@shared/types/Window.interface";
 
-interface ICloseWindow {
-  windowId: string;
-}
-
-function CloseWindow({ windowId }: ICloseWindow): ReactNode {
+function CloseWindow({ windowId }: WindowDTO): ReactNode {
   return (
     <WindowActionButtonFactory
       onClick={() => closeWindow(windowId)}

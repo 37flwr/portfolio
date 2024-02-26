@@ -359,6 +359,15 @@ template {
   display: none;
 }
 
+/* Iframe */
+
+iframe {
+  overflow-clip-margin: content-box !important;
+  overflow: clip !important;
+  border-width: 0;
+  border: none;
+}
+
 /**
  * Add the correct display in IE 10.
  */

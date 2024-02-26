@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { ButtonWithHoverActiveStaleStates } from "@entities/button-with-states";
+import { ButtonWithHoverActiveStaleStates as ButtonWithStates } from "@entities/button-with-states";
 import {
   MinimizeWindowIconActive,
   MinimizeWindowIconHover,
@@ -14,17 +14,16 @@ import {
   ShrinkWindowIconHover,
   ShrinkWindowIconStale,
 } from "@shared/ui/windows-icons";
-
+import {
+  WindowActionButtonFactory as IWindowActionButtonFactory,
+  WindowActionButtonScheme,
+} from "../lib/WindowActionButtons.interface";
 import "./styles.scss";
 
-interface WindowActionButtonScheme {
-  [key: string]: (arg: () => void) => ReactNode;
-}
-
 const windowActionButtons: WindowActionButtonScheme = {
-  close: (onClick): ReactNode => {
+  close: (onClick) => {
     return (
-      <ButtonWithHoverActiveStaleStates
+      <ButtonWithStates
         onClick={onClick}
         active={<CloseWindowIconActive />}
         hover={<CloseWindowIconHover />}
@@ -32,9 +31,9 @@ const windowActionButtons: WindowActionButtonScheme = {
       />
     );
   },
-  shrink: (onClick): ReactNode => {
+  shrink: (onClick) => {
     return (
-      <ButtonWithHoverActiveStaleStates
+      <ButtonWithStates
         onClick={onClick}
         active={<ShrinkWindowIconActive />}
         hover={<ShrinkWindowIconHover />}
@@ -42,9 +41,9 @@ const windowActionButtons: WindowActionButtonScheme = {
       />
     );
   },
-  expand: (onClick): ReactNode => {
+  expand: (onClick) => {
     return (
-      <ButtonWithHoverActiveStaleStates
+      <ButtonWithStates
         onClick={onClick}
         active={<ExpandWindowIconActive />}
         hover={<ExpandWindowIconHover />}
@@ -52,9 +51,9 @@ const windowActionButtons: WindowActionButtonScheme = {
       />
     );
   },
-  minimize: (onClick): ReactNode => {
+  minimize: (onClick) => {
     return (
-      <ButtonWithHoverActiveStaleStates
+      <ButtonWithStates
         onClick={onClick}
         active={<MinimizeWindowIconActive />}
         hover={<MinimizeWindowIconHover />}
@@ -67,10 +66,7 @@ const windowActionButtons: WindowActionButtonScheme = {
 function WindowActionButtonFactory({
   type,
   onClick,
-}: {
-  type: string;
-  onClick: () => void;
-}): ReactNode {
+}: IWindowActionButtonFactory): ReactNode {
   return (
     <div className="window-action-button">
       {windowActionButtons[type](onClick)}
