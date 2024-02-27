@@ -1,15 +1,23 @@
 import { type PropsWithChildren, type ReactNode } from 'react'
 import { Toolbar } from './Toolbar'
 import { FunctionBar } from './FunctionBar'
+import { AddressBar } from './AddressBar'
 
 import './styles.scss'
+import { Content } from './Content'
 
-function Folder({ children }: PropsWithChildren): ReactNode {
+interface IFolder extends PropsWithChildren {
+    Icon: ReactNode
+    folderName: string
+}
+
+function Folder({ Icon, folderName, children }: IFolder): ReactNode {
     return (
         <div className="folder">
             <Toolbar />
             <FunctionBar />
-            {children}
+            <AddressBar Icon={Icon} folderName={folderName} />
+            <Content>{children}</Content>
         </div>
     )
 }
