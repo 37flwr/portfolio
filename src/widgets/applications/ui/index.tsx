@@ -1,9 +1,9 @@
 import { type ReactNode } from 'react'
 import { OpenWindowButton } from '@features/open-window'
 import { applicationsArray } from '../lib/applicationsArray'
+import { applicationIconScheme } from '../lib/applicationScheme'
 
 import './styles.scss'
-import { applicationIconScheme } from '../applications'
 
 function Applications(): ReactNode {
     return (

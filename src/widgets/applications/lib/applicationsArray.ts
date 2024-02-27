@@ -4,16 +4,16 @@ export const applicationsArray: Array<OpenWindowDTO> = [
     {
         icon: 'pdf',
         title: 'My_CV.pdf',
-        application: 'cv',
+        application: 'pdf/cv',
     },
     {
         icon: 'secret',
         title: 'My Ledger Mnemonic',
-        application: 'rickAstley',
+        application: 'meme/rickAstley',
     },
     {
         icon: 'folder',
         title: 'Certificates',
-        application: 'certificates',
+        application: 'folder/certificates',
     },
 ]

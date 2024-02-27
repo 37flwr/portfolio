@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { ApplicationIcons, Applications } from './Applications.interface'
 
 export type WindowStates = 'opened' | 'minimized' | 'expanded'
@@ -17,6 +18,10 @@ export interface OpenWindowDTO {
     icon: keyof ApplicationIcons
     title: string
     application: keyof Applications
+}
+
+export interface RenderOpenWindow extends OpenWindowDTO {
+    Icon: ReactNode
 }
 
 export interface WindowDTO {

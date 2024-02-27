@@ -4,7 +4,7 @@ import { TaskbarButtonActive } from '@shared/ui/windows-buttons'
 import { useWindowsStore } from '@app/store/windows'
 import { shallow } from 'zustand/shallow'
 import { TaskbarButton } from '@entities/taskbar-button'
-import { applicationIconScheme } from '@widgets/applications/applications'
+import { applicationIconScheme } from '@widgets/applications/lib/applicationScheme'
 import { WindowDTO } from '@shared/types/Window.interface'
 
 function MinimizeWindow({ windowId }: WindowDTO): ReactNode {

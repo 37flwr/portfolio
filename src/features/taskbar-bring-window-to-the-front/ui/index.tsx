@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react'
 import { shallow } from 'zustand/shallow'
 import { useWindowsStore } from '@app/store/windows'
-import { applicationIconScheme } from '@widgets/applications/applications'
+import { applicationIconScheme } from '@widgets/applications/lib/applicationScheme'
 import { TaskbarButton } from '@entities/taskbar-button'
 import { minimizeWindow } from '../model/bringWindowToTheFront'
 import { TaskbarButtonStale } from '@shared/ui/windows-buttons'

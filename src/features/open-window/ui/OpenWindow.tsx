@@ -8,14 +8,14 @@ import {
 } from '@shared/types/Applications.interface'
 import './styles.scss'
 
-interface OpenWindow {
+interface IOpenWindow {
     iconTitle: keyof ApplicationIcons
     Icon: ReactNode
     title: string
     application: keyof Applications
 }
 
-function OpenWindow(windowInfo: OpenWindow): ReactNode {
+function OpenWindow(windowInfo: IOpenWindow): ReactNode {
     return (
         <button
             className="desktop-icon"

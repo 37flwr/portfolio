@@ -3,7 +3,7 @@ import cn from 'classnames'
 import {
     applicationIconScheme,
     applicationScheme,
-} from '@widgets/applications/applications'
+} from '@widgets/applications/lib/applicationScheme'
 import { WindowActionButtons } from './WindowActionButtons'
 import { useWindowContext } from '../model/windowContext'
 import { TrebuchetTextElement } from '@shared/ui/text-elements'

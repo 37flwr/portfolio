@@ -97,7 +97,7 @@ function Content({ children }: PropsWithChildren): ReactNode {
                     )
                 })}
             </div>
-            {children}
+            <div className="folder__content_right">{children}</div>
         </div>
     )
 }

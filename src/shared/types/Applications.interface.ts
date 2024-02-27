@@ -1,6 +1,11 @@
 import { ReactNode } from 'react'
 
-type ApplicationTitles = 'none' | 'cv' | 'rickAstley' | 'certificates'
+type ApplicationTitles =
+    | 'none'
+    | 'pdf/cv'
+    | 'pdf/microfrontends'
+    | 'meme/rickAstley'
+    | 'folder/certificates'
 
 export type Applications = Record<ApplicationTitles, ReactNode>
 
