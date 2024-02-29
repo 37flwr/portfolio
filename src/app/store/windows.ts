@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware'
 import { v4 as uuid } from 'uuid'
 import { OpenWindowDTO, Window } from '@shared/types/Window.interface'
 import { findBiggestZIndex } from '@shared/lib/getWindowDetails'
+import { getRandomInt } from '@shared/lib/random'
 
 interface WindowsStore {
     windows: Array<Window>
@@ -33,8 +34,8 @@ const store = (set: any): WindowsStore => ({
                 isExpanded: false,
                 windowIcon: newWindowInfo.icon,
                 coordinates: {
-                    x: 100,
-                    y: 100,
+                    x: getRandomInt(50, 400),
+                    y: getRandomInt(25, 175),
                     z: findBiggestZIndex(state.windows) + 1,
                 },
             }
