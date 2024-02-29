@@ -1,15 +1,12 @@
-import { MimetypePdfIcon } from '@shared/ui/mimetypes/pdf'
-import mimetypeUnknown from '@shared/assets/icons/mimetype-unknown.svg'
+import { Microfrontends } from '../ui/applications/pdfs/Microfrontends'
+import { CV } from '../ui/applications/pdfs/CV'
+import { RickAstley } from '../ui/applications/RickAstley'
+import { Certificates } from '../ui/applications/Certificates'
+import Icons from '@shared/ui/windows-icons'
 import {
     ApplicationIcons,
     Applications,
 } from '@shared/types/Applications.interface'
-import { RickAstley } from '../ui/applications/RickAstley'
-import { MimetypeSecretIcon } from '@shared/ui/mimetypes/secret'
-import { FolderIcon } from '@shared/ui/application-icons/folder'
-import { Certificates } from '../ui/applications/Certificates'
-import { CV } from '../ui/applications/pdfs/CV'
-import { Microfrontends } from '../ui/applications/pdfs/Microfrontends'
 
 export const applicationScheme: Applications = {
     none: (
@@ -24,8 +21,8 @@ export const applicationScheme: Applications = {
 }
 
 export const applicationIconScheme: ApplicationIcons = {
-    none: <img src={mimetypeUnknown} alt="" />,
-    pdf: <MimetypePdfIcon />,
-    folder: <FolderIcon />,
-    secret: <MimetypeSecretIcon />,
+    none: <Icons.Mimetype.Unknown />,
+    pdf: <Icons.Mimetype.Pdf />,
+    folder: <Icons.Folder.Base />,
+    secret: <Icons.Mimetype.Secret />,
 }

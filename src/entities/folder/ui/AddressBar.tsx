@@ -1,14 +1,8 @@
 import { type ReactNode } from 'react'
-
-import './styles.scss'
-import { NotoSansTextElement } from '@shared/ui/text-elements'
 import { ButtonWithHoverActiveStaleStates } from '@entities/button-with-states'
-import {
-    DropdownIconActive,
-    DropdownIconHover,
-    DropdownIconStale,
-} from '@shared/ui/windows-icons/dropdown'
-import { DialogOkIcon } from '@shared/ui/windows-icons/dialog-ok'
+import { NotoSansTextElement } from '@shared/ui/text-elements'
+import Icons from '@shared/ui/windows-icons'
+import './styles.scss'
 interface IFolderAddressBar {
     Icon: ReactNode
     folderName: string
@@ -26,15 +20,15 @@ function AddressBar({ Icon, folderName }: IFolderAddressBar): ReactNode {
                     {folderName}
                 </NotoSansTextElement>
                 <ButtonWithHoverActiveStaleStates
-                    active={<DropdownIconActive />}
-                    hover={<DropdownIconHover />}
-                    stale={<DropdownIconStale />}
+                    active={<Icons.Dropdown.Active />}
+                    hover={<Icons.Dropdown.Hover />}
+                    stale={<Icons.Dropdown.Stale />}
                     onClick={() => {}}
                     className="folder__address-bar__content__dropdown"
                 />
             </div>
             <div className="folder__address-bar__go-btn">
-                <DialogOkIcon className="folder__address-bar__go-btn__icon" />
+                <Icons.DialogOk className="folder__address-bar__go-btn__icon" />
                 <NotoSansTextElement className="folder__address-bar__go-btn__label">
                     Go
                 </NotoSansTextElement>

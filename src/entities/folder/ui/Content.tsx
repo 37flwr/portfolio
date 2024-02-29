@@ -1,46 +1,45 @@
 import { type PropsWithChildren, type ReactNode } from 'react'
+import Icons from '@shared/ui/windows-icons'
 import { NotoSansTextElement } from '@shared/ui/text-elements'
-import { PullupIcon } from '@shared/ui/windows-icons/pullup'
-import { SaveIcon } from '@shared/ui/windows-icons/save'
 import './styles.scss'
 
 const contentCards: Array<{ header: ContentBlock; body: Array<ContentBlock> }> =
     [
         {
-            header: { title: 'System Tasks', Icon: PullupIcon },
+            header: { title: 'System Tasks', Icon: Icons.Pullup },
             body: [
                 {
                     title: 'View system information',
-                    Icon: SaveIcon,
+                    Icon: Icons.Save,
                 },
                 {
                     title: 'Add or remove programs',
-                    Icon: SaveIcon,
+                    Icon: Icons.Save,
                 },
                 {
                     title: 'Change a setting',
-                    Icon: SaveIcon,
+                    Icon: Icons.Save,
                 },
             ],
         },
         {
-            header: { title: 'Other places', Icon: PullupIcon },
+            header: { title: 'Other places', Icon: Icons.Pullup },
             body: [
                 {
                     title: 'My Network Places',
-                    Icon: SaveIcon,
+                    Icon: Icons.Save,
                 },
                 {
                     title: 'My Documents',
-                    Icon: SaveIcon,
+                    Icon: Icons.Save,
                 },
                 {
                     title: 'Shared Documents',
-                    Icon: SaveIcon,
+                    Icon: Icons.Save,
                 },
                 {
                     title: 'Control Panel',
-                    Icon: SaveIcon,
+                    Icon: Icons.Save,
                 },
             ],
         },

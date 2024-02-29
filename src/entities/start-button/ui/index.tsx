@@ -1,10 +1,6 @@
 import { type ReactNode } from 'react'
 import { ButtonWithHoverActiveStaleStates } from '@entities/button-with-states'
-import {
-    StartMenuIconActive,
-    StartMenuIconHover,
-    StartMenuIconStale,
-} from '@shared/ui/windows-icons'
+import Icons from '@shared/ui/windows-icons'
 import './styles.scss'
 
 function StartButtonWithHoverActiveStaleStates({
@@ -16,9 +12,9 @@ function StartButtonWithHoverActiveStaleStates({
         <ButtonWithHoverActiveStaleStates
             className="start-button"
             onClick={onClick}
-            active={<StartMenuIconActive />}
-            hover={<StartMenuIconHover />}
-            stale={<StartMenuIconStale />}
+            active={<Icons.StartMenu.Active />}
+            hover={<Icons.StartMenu.Hover />}
+            stale={<Icons.StartMenu.Stale />}
         />
     )
 }

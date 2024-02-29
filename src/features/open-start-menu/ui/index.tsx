@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { StartButton } from '@entities/start-button'
-import { StartMenuIconActive } from '@shared/ui/windows-icons'
+import Icons from '@shared/ui/windows-icons'
 import { useMenuState } from '../model/useMenuState'
 
 function OpenStartMenuButton(): ReactNode {
@@ -9,7 +9,7 @@ function OpenStartMenuButton(): ReactNode {
     if (menuOpened) {
         return (
             <button className="start-button" onClick={switchMenuOpenedState}>
-                <StartMenuIconActive />
+                <Icons.StartMenu.Active />
             </button>
         )
     }

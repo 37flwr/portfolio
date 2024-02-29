@@ -1,23 +1,10 @@
 import { type ReactNode } from 'react'
 import { ButtonWithHoverActiveStaleStates as ButtonWithStates } from '@entities/button-with-states'
 import {
-    MinimizeWindowIconActive,
-    MinimizeWindowIconHover,
-    MinimizeWindowIconStale,
-    CloseWindowIconActive,
-    CloseWindowIconHover,
-    CloseWindowIconStale,
-    ExpandWindowIconActive,
-    ExpandWindowIconHover,
-    ExpandWindowIconStale,
-    ShrinkWindowIconActive,
-    ShrinkWindowIconHover,
-    ShrinkWindowIconStale,
-} from '@shared/ui/windows-icons'
-import {
     WindowActionButtonFactory as IWindowActionButtonFactory,
     WindowActionButtonScheme,
 } from '../lib/WindowActionButtons.interface'
+import Icons from '@shared/ui/windows-icons'
 import './styles.scss'
 
 const windowActionButtons: WindowActionButtonScheme = {
@@ -25,9 +12,9 @@ const windowActionButtons: WindowActionButtonScheme = {
         return (
             <ButtonWithStates
                 onClick={onClick}
-                active={<CloseWindowIconActive />}
-                hover={<CloseWindowIconHover />}
-                stale={<CloseWindowIconStale />}
+                active={<Icons.CloseWindow.Active />}
+                hover={<Icons.CloseWindow.Hover />}
+                stale={<Icons.CloseWindow.Stale />}
             />
         )
     },
@@ -35,9 +22,9 @@ const windowActionButtons: WindowActionButtonScheme = {
         return (
             <ButtonWithStates
                 onClick={onClick}
-                active={<ShrinkWindowIconActive />}
-                hover={<ShrinkWindowIconHover />}
-                stale={<ShrinkWindowIconStale />}
+                active={<Icons.ShrinkWindow.Active />}
+                hover={<Icons.ShrinkWindow.Hover />}
+                stale={<Icons.ShrinkWindow.Stale />}
             />
         )
     },
@@ -45,9 +32,9 @@ const windowActionButtons: WindowActionButtonScheme = {
         return (
             <ButtonWithStates
                 onClick={onClick}
-                active={<ExpandWindowIconActive />}
-                hover={<ExpandWindowIconHover />}
-                stale={<ExpandWindowIconStale />}
+                active={<Icons.ExpandWindow.Active />}
+                hover={<Icons.ExpandWindow.Hover />}
+                stale={<Icons.ExpandWindow.Stale />}
             />
         )
     },
@@ -55,9 +42,9 @@ const windowActionButtons: WindowActionButtonScheme = {
         return (
             <ButtonWithStates
                 onClick={onClick}
-                active={<MinimizeWindowIconActive />}
-                hover={<MinimizeWindowIconHover />}
-                stale={<MinimizeWindowIconStale />}
+                active={<Icons.MinimizeWindow.Active />}
+                hover={<Icons.MinimizeWindow.Hover />}
+                stale={<Icons.MinimizeWindow.Stale />}
             />
         )
     },

@@ -1,15 +1,14 @@
 import { ReactNode } from 'react'
 import { OpenWindowFromFolderButton } from '@features/open-window'
 import { FolderFrame } from '@entities/folder'
-import { FolderIcon } from '@shared/ui/application-icons/folder'
 import { RenderOpenWindow } from '@shared/types/Window.interface'
-import { MimetypePdfIcon } from '@shared/ui/mimetypes/pdf'
+import Icons from '@shared/ui/windows-icons'
 import './styles.scss'
 
 const folderChildren: Array<RenderOpenWindow> = [
     {
         icon: 'pdf',
-        Icon: <MimetypePdfIcon />,
+        Icon: <Icons.Mimetype.Pdf />,
         title: 'Microfrontends with React',
         application: 'pdf/microfrontends',
     },
@@ -17,7 +16,7 @@ const folderChildren: Array<RenderOpenWindow> = [
 
 function Certificates(): ReactNode {
     return (
-        <FolderFrame Icon={<FolderIcon />} folderName="Certificates">
+        <FolderFrame Icon={<Icons.Folder.Base />} folderName="Certificates">
             {folderChildren.map((folderChild) => (
                 <OpenWindowFromFolderButton {...folderChild} />
             ))}
