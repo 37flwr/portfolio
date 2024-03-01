@@ -182,7 +182,7 @@
         display: flex;
 
         &_left {
-            width: 180px;
+            min-width: 180px;
             height: 100%;
             padding: 10px;
             box-sizing: border-box;
@@ -260,8 +260,13 @@
         }
 
         &_right {
-            display: flex;
+            display: inline;
             padding: 15px 15px 0;
+            box-sizing: border-box;
+
+            & > *:not(:last-child) {
+                padding-right: 10px;
+            }
         }
     }
 }

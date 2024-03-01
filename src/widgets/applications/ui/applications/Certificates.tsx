@@ -12,6 +12,18 @@ const folderChildren: Array<RenderOpenWindow> = [
         title: 'Microfrontends with React',
         application: 'pdf/microfrontends',
     },
+    {
+        icon: 'pdf',
+        Icon: <Icons.Mimetype.Pdf />,
+        title: 'Cryptography and Hashing',
+        application: 'pdf/cryptography',
+    },
+    {
+        icon: 'pdf',
+        Icon: <Icons.Mimetype.Pdf />,
+        title: 'Cryptography and Hashing',
+        application: 'pdf/cryptography',
+    },
 ]
 
 function Certificates(): ReactNode {

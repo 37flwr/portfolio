@@ -7,6 +7,7 @@ import {
     ApplicationIcons,
     Applications,
 } from '@shared/types/Applications.interface'
+import { Cryptography } from '../ui/applications/pdfs/Cryptography'
 
 export const applicationScheme: Applications = {
     none: (
@@ -16,6 +17,7 @@ export const applicationScheme: Applications = {
     ),
     'pdf/cv': <CV />,
     'pdf/microfrontends': <Microfrontends />,
+    'pdf/cryptography': <Cryptography />,
     'meme/rickAstley': <RickAstley />,
     'folder/certificates': <Certificates />,
 }

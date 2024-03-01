@@ -4,6 +4,7 @@ type ApplicationTitles =
     | 'none'
     | 'pdf/cv'
     | 'pdf/microfrontends'
+    | 'pdf/cryptography'
     | 'meme/rickAstley'
     | 'folder/certificates'
 
