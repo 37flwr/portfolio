@@ -16,4 +16,5 @@ export default defineConfig({
             '@shared': resolve(`src/shared`),
         },
     },
+    base: '/',
 })
