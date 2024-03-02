@@ -10,7 +10,13 @@ import { TrebuchetTextElement } from '@shared/ui/text-elements'
 
 import './styles.scss'
 
-function WindowFrame({ className }: { className?: string }): ReactNode {
+function WindowFrame({
+    className,
+    topViewWindow,
+}: {
+    className?: string
+    topViewWindow: boolean
+}): ReactNode {
     const window = useWindowContext()
     return (
         <div
@@ -18,6 +24,7 @@ function WindowFrame({ className }: { className?: string }): ReactNode {
             style={{ width: window.windowSize.w, height: window.windowSize.h }}
         >
             <div className="window__title-bar">
+                {!topViewWindow && <div className="not-top-view-window" />}
                 <div className="window__title-bar__title">
                     <div className="window__title-bar__title__icon">
                         {applicationIconScheme[window.windowIcon]}
@@ -30,6 +37,7 @@ function WindowFrame({ className }: { className?: string }): ReactNode {
                     <WindowActionButtons />
                 </div>
             </div>
+
             <div className="window__content">
                 {applicationScheme[window.application] ||
                     `Couldn't load application`}

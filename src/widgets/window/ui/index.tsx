@@ -4,10 +4,17 @@ import { DraggableWindow } from '@features/drag-window'
 import { WindowFrame } from './WindowFrame'
 import { WindowDTO } from '@shared/types/Window.interface'
 import { WindowContext } from '../model/windowContext'
+import { shallow } from 'zustand/shallow'
 
-function Window({ windowId }: WindowDTO): ReactNode {
-    const window = useWindowsStore((store) =>
-        store.windows.filter((window) => window.windowId === windowId)
+interface Props extends WindowDTO {
+    topViewWindow: boolean
+}
+
+function Window({ windowId, topViewWindow }: Props): ReactNode {
+    const window = useWindowsStore(
+        (store) =>
+            store.windows.filter((window) => window.windowId === windowId),
+        shallow
     )[0]
 
     if (window.isExpanded) {
@@ -19,7 +26,10 @@ function Window({ windowId }: WindowDTO): ReactNode {
                         zIndex: window.coordinates.z,
                     }}
                 >
-                    <WindowFrame className="expanded" />
+                    <WindowFrame
+                        className="expanded"
+                        topViewWindow={topViewWindow}
+                    />
                 </div>
             </WindowContext.Provider>
         )
@@ -28,7 +38,7 @@ function Window({ windowId }: WindowDTO): ReactNode {
     return (
         <WindowContext.Provider value={window}>
             <DraggableWindow windowId={windowId}>
-                <WindowFrame />
+                <WindowFrame topViewWindow={topViewWindow} />
             </DraggableWindow>
         </WindowContext.Provider>
     )

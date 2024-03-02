@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     border-color: #0072ef #01279e #01279e #0236d8;
+    position: relative;
     background: linear-gradient(
             to right,
             #034fe1,
@@ -98,6 +99,12 @@
                     height: 100%;
                 }
             }
+
+            &__text {
+                text-shadow: 1px 1px #000;
+                color: var(--color-white);
+                z-index: 1;
+            }
         }
 
         &__controls {
@@ -122,4 +129,33 @@
 .expanded {
     width: 100vw !important;
     height: calc(100vh - var(--taskbar-height)) !important;
+}
+
+.not-top-view-window {
+    background: linear-gradient(
+        to bottom,
+        #7697e7 0%,
+        #7e9ee3 3%,
+        #94afe8 6%,
+        #97b4e9 8%,
+        #82a5e4 14%,
+        #7c9fe2 17%,
+        #7996de 25%,
+        #7b99e1 56%,
+        #82a9e9 81%,
+        #80a5e7 89%,
+        #7b96e1 94%,
+        #7a93df 97%,
+        #abbae3 100%
+    );
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    height: var(--window-title-bar-height);
+    pointer-events: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden;
 }
