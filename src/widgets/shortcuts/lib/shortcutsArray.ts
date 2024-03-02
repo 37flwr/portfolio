@@ -1,6 +1,6 @@
 import { OpenWindowDTO } from '@shared/types/Window.interface'
 
-export const applicationsArray: Array<OpenWindowDTO> = [
+export const shortcutsArray: Array<OpenWindowDTO> = [
     {
         icon: 'pdf',
         title: 'My_CV.pdf',

@@ -1,15 +1,12 @@
-import { Microfrontends } from '../ui/applications/pdfs/Microfrontends'
-import { CV } from '../ui/applications/pdfs/CV'
-import { RickAstley } from '../ui/applications/RickAstley'
-import { Certificates } from '../ui/applications/Certificates'
+import { Microfrontends } from '../ui/pdfs/Microfrontends'
+import { CV } from '../ui/pdfs/CV'
+import { RickAstley } from '../ui/RickAstley'
+import { Certificates } from '../ui/Certificates'
+import { Cryptography } from '../ui/pdfs/Cryptography'
 import Icons from '@shared/ui/windows-icons'
-import {
-    ApplicationIcons,
-    Applications,
-} from '@shared/types/Applications.interface'
-import { Cryptography } from '../ui/applications/pdfs/Cryptography'
+import { ShortcutIcons, Shortcuts } from '@shared/types/Shortcuts.interface'
 
-export const applicationScheme: Applications = {
+export const shortcutScheme: Shortcuts = {
     none: (
         <div style={{ backgroundColor: '#fff', width: '100%', height: '100%' }}>
             _blank
@@ -22,7 +19,7 @@ export const applicationScheme: Applications = {
     'folder/certificates': <Certificates />,
 }
 
-export const applicationIconScheme: ApplicationIcons = {
+export const shortcutIconScheme: ShortcutIcons = {
     none: <Icons.Mimetype.Unknown />,
     pdf: <Icons.Mimetype.Pdf />,
     folder: <Icons.Folder.Base />,

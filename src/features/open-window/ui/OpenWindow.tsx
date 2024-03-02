@@ -5,7 +5,7 @@ import { NotoSansTextElement } from '@shared/ui/text-elements'
 import {
     ApplicationIcons,
     Applications,
-} from '@shared/types/Applications.interface'
+} from '@shared/types/Shortcuts.interface'
 import './styles.scss'
 
 interface IOpenWindow {

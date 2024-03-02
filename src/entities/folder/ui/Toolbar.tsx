@@ -10,7 +10,7 @@ function Toolbar(): ReactNode {
             <div className="folder__toolbar__options">
                 {['File', 'Edit', 'View', 'Favorites', 'Tools', 'Help'].map(
                     (el) => (
-                        <NavigationDropdown label={el} />
+                        <NavigationDropdown key={el} label={el} />
                     )
                 )}
             </div>

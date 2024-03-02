@@ -4,7 +4,7 @@ import { TaskbarButtonActive } from '@shared/ui/windows-buttons'
 import { useWindowsStore } from '@app/store/windows'
 import { shallow } from 'zustand/shallow'
 import { TaskbarButton } from '@entities/taskbar-button'
-import { applicationIconScheme } from '@widgets/applications/lib/applicationScheme'
+import { shortcutIconScheme } from '@widgets/shortcuts/lib/shortcutsScheme'
 import { WindowDTO } from '@shared/types/Window.interface'
 
 function MinimizeWindow({ windowId }: WindowDTO): ReactNode {
@@ -16,7 +16,7 @@ function MinimizeWindow({ windowId }: WindowDTO): ReactNode {
     return (
         <TaskbarButton onClick={() => minimizeWindow(windowId)}>
             <TaskbarButtonActive
-                Icon={applicationIconScheme[window.windowIcon]}
+                Icon={shortcutIconScheme[window.windowIcon]}
                 title={window.windowTitle}
             />
         </TaskbarButton>

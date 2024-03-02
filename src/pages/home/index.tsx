@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from 'react'
 import { useWindowsStore } from '@app/store/windows'
-import { DesktopApplications } from '@widgets/applications'
+import { Shortcuts } from '@widgets/shortcuts'
 import { Window } from '@widgets/window'
 import { Taskbar } from '@widgets/taskbar'
 import wallpaper from '@shared/assets/images/wallpaper.jpeg'
@@ -25,7 +25,7 @@ function Home(): ReactNode {
     return (
         <>
             <div className="desktop">
-                <DesktopApplications />
+                <Shortcuts />
                 {visibleWindows.map((window) => (
                     <Window
                         key={window.windowId}

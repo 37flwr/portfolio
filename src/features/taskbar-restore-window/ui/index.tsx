@@ -2,7 +2,7 @@ import { type ReactNode } from 'react'
 import { shallow } from 'zustand/shallow'
 import { useWindowsStore } from '@app/store/windows'
 import { TaskbarButton } from '@entities/taskbar-button'
-import { applicationIconScheme } from '@widgets/applications/lib/applicationScheme'
+import { shortcutIconScheme } from '@widgets/shortcuts/lib/shortcutsScheme'
 import { restoreWindow } from '../model/restoreWindow'
 import { TaskbarButtonStale } from '@shared/ui/windows-buttons'
 import { WindowDTO } from '@shared/types/Window.interface'
@@ -17,7 +17,7 @@ function RestoreWindow({ windowId }: WindowDTO): ReactNode {
     return (
         <TaskbarButton onClick={() => restoreWindow(windowId)}>
             <TaskbarButtonStale
-                Icon={applicationIconScheme[window.windowIcon]}
+                Icon={shortcutIconScheme[window.windowIcon]}
                 title={window.windowTitle}
             />
         </TaskbarButton>
