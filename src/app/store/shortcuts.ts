@@ -26,7 +26,7 @@ const shortcutsArray: Array<Shortcut> = [
         application: 'meme/rickAstley',
         coordinates: {
             x: 0,
-            y: 40,
+            y: 80,
         },
     },
     {
@@ -36,7 +36,7 @@ const shortcutsArray: Array<Shortcut> = [
         application: 'folder/certificates',
         coordinates: {
             x: 0,
-            y: 80,
+            y: 160,
         },
     },
 ]
@@ -57,13 +57,14 @@ const store = (set: any): ShortcutsStore => ({
             const modifiedShortcutIdx = state.shortcuts.findIndex(
                 (shortcut) => shortcut.shortcutId === shortcutId
             )
-            const newWindows = [...state.shortcuts]
-            newWindows[modifiedShortcutIdx].coordinates = {
+            const newShortcuts = [...state.shortcuts]
+
+            newShortcuts[modifiedShortcutIdx].coordinates = {
                 ...coordinates,
             }
 
             return {
-                windows: [...newWindows],
+                shortcuts: [...newShortcuts],
             }
         })
     },

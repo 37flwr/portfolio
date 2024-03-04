@@ -1,9 +1,11 @@
-.shortcuts {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+@use 'sass:math';
 
-    margin: 40px;
+.shortcuts {
+    padding: 30px 0px 20px 15px;
+
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 
     position: absolute;
 }
@@ -12,6 +14,7 @@
     width: 100%;
     height: 100%;
     overflow: scroll;
+    position: absolute;
 
     &_cv {
         canvas {

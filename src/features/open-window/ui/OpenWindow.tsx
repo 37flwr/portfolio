@@ -2,17 +2,14 @@ import { type ReactNode } from 'react'
 import { openWindow } from '../model/openWindow'
 import { NotoSansTextElement } from '@shared/ui/text-elements'
 
-import {
-    ApplicationIcons,
-    Applications,
-} from '@shared/types/Shortcuts.interface'
+import { ShortcutIcons, Shortcuts } from '@shared/types/Shortcuts.interface'
 import './styles.scss'
 
 interface IOpenWindow {
-    iconTitle: keyof ApplicationIcons
+    iconTitle: keyof ShortcutIcons
     Icon: ReactNode
     title: string
-    application: keyof Applications
+    application: keyof Shortcuts
 }
 
 function OpenWindow(windowInfo: IOpenWindow): ReactNode {
