@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { useBootUpStateStore } from '@app/store/bootUp'
-import { BootUpPage, HomePage } from '@pages/index'
+import { BootUpPage, DesktopPage } from '@pages/index'
 
 function BootUpToHomePage(): ReactNode {
     const showedBootUp = useBootUpStateStore(
@@ -9,7 +9,7 @@ function BootUpToHomePage(): ReactNode {
 
     if (!showedBootUp) return <BootUpPage />
 
-    return <HomePage />
+    return <DesktopPage />
 }
 
 export { BootUpToHomePage }

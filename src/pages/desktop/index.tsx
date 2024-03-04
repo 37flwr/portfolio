@@ -8,7 +8,7 @@ import { findBiggestZIndex } from '@shared/lib/getWindowDetails'
 
 import './styles.scss'
 
-function Home(): ReactNode {
+function Desktop(): ReactNode {
     const visibleWindows = useWindowsStore((store) =>
         store.windows.filter((window) => window.windowState !== 'minimized')
     )
@@ -40,4 +40,4 @@ function Home(): ReactNode {
     )
 }
 
-export { Home }
+export { Desktop }
