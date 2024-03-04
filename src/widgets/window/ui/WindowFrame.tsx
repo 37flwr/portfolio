@@ -1,9 +1,9 @@
 import { type ReactNode } from 'react'
 import cn from 'classnames'
 import {
-    applicationIconScheme,
-    applicationScheme,
-} from '@widgets/applications/lib/applicationScheme'
+    shortcutIconScheme,
+    shortcutScheme,
+} from '@widgets/shortcuts/lib/shortcutsScheme'
 import { WindowActionButtons } from './WindowActionButtons'
 import { useWindowContext } from '../model/windowContext'
 import { TrebuchetTextElement } from '@shared/ui/text-elements'
@@ -27,7 +27,7 @@ function WindowFrame({
                 {!topViewWindow && <div className="not-top-view-window" />}
                 <div className="window__title-bar__title">
                     <div className="window__title-bar__title__icon">
-                        {applicationIconScheme[window.windowIcon]}
+                        {shortcutIconScheme[window.windowIcon]}
                     </div>
                     <TrebuchetTextElement className="window__title-bar__title__text">
                         {window.windowTitle}
@@ -39,7 +39,7 @@ function WindowFrame({
             </div>
 
             <div className="window__content">
-                {applicationScheme[window.application] ||
+                {shortcutScheme[window.application] ||
                     `Couldn't load application`}
             </div>
         </div>

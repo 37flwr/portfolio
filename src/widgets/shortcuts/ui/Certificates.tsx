@@ -29,8 +29,8 @@ const folderChildren: Array<RenderOpenWindow> = [
 function Certificates(): ReactNode {
     return (
         <FolderFrame Icon={<Icons.Folder.Base />} folderName="Certificates">
-            {folderChildren.map((folderChild) => (
-                <OpenWindowFromFolderButton {...folderChild} />
+            {folderChildren.map((folderChild, idx) => (
+                <OpenWindowFromFolderButton key={idx} {...folderChild} />
             ))}
         </FolderFrame>
     )

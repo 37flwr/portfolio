@@ -6,6 +6,8 @@ interface BootUpStateStore {
     setShowedBootUpScreenTo: (value: boolean) => void
 }
 
+// TODO: move all this to applicaion state slice
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const store = (set: any): BootUpStateStore => ({
     showedBootUpScreen: false,

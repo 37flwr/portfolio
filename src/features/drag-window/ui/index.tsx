@@ -3,10 +3,14 @@ import Draggable, { type DraggableData } from 'react-draggable'
 import { useWindowsStore } from '@app/store/windows'
 import { changeWindowPosition } from '../model/changeWindowPosition'
 import { WindowDTO } from '@shared/types/Window.interface'
+import {
+    WINDOW_GRID_SIZE_X,
+    WINDOW_GRID_SIZE_Y,
+} from '@shared/constants/numbers'
 
-type IDraggableWindow = WindowDTO & PropsWithChildren
+type Props = WindowDTO & PropsWithChildren
 
-function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
+function DraggableWindow({ windowId, children }: Props): ReactNode {
     const window = useWindowsStore((state) =>
         state.windows.filter((window) => window.windowId === windowId)
     )[0]
@@ -21,7 +25,7 @@ function DraggableWindow({ windowId, children }: IDraggableWindow): ReactNode {
             bounds="parent"
             handle=".window__title-bar"
             defaultPosition={window.coordinates}
-            grid={[5, 5]}
+            grid={[WINDOW_GRID_SIZE_X, WINDOW_GRID_SIZE_Y]}
             scale={1}
             onStart={() => {
                 changeWindowPosition(windowId, window.coordinates)

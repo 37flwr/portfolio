@@ -68,8 +68,8 @@ function ContentBody({
 }): ReactNode {
     return (
         <div className="folder__content__card__body">
-            {elements.map(({ Icon, title }) => (
-                <div className="folder__content__card__body__element">
+            {elements.map(({ Icon, title }, idx) => (
+                <div className="folder__content__card__body__element" key={idx}>
                     <Icon className="folder__content__card__body__element__icon" />
                     <NotoSansTextElement className="folder__content__card__body__element__text">
                         {title}
@@ -84,17 +84,15 @@ function Content({ children }: PropsWithChildren): ReactNode {
     return (
         <div className="folder__content">
             <div className="folder__content_left">
-                {contentCards.map((card) => {
-                    return (
-                        <div className="folder__content__card">
-                            <ContentHeader
-                                title={card.header.title}
-                                Icon={card.header.Icon}
-                            />
-                            <ContentBody elements={card.body} />
-                        </div>
-                    )
-                })}
+                {contentCards.map((card, idx) => (
+                    <div className="folder__content__card" key={idx}>
+                        <ContentHeader
+                            title={card.header.title}
+                            Icon={card.header.Icon}
+                        />
+                        <ContentBody elements={card.body} />
+                    </div>
+                ))}
             </div>
             <div className="folder__content_right">{children}</div>
         </div>

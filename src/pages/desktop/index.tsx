@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from 'react'
 import { useWindowsStore } from '@app/store/windows'
-import { DesktopApplications } from '@widgets/applications'
+import { Shortcuts } from '@widgets/shortcuts'
 import { Window } from '@widgets/window'
 import { Taskbar } from '@widgets/taskbar'
 import wallpaper from '@shared/assets/images/wallpaper.jpeg'
@@ -8,7 +8,7 @@ import { findBiggestZIndex } from '@shared/lib/getWindowDetails'
 
 import './styles.scss'
 
-function Home(): ReactNode {
+function Desktop(): ReactNode {
     const visibleWindows = useWindowsStore((store) =>
         store.windows.filter((window) => window.windowState !== 'minimized')
     )
@@ -25,7 +25,7 @@ function Home(): ReactNode {
     return (
         <>
             <div className="desktop">
-                <DesktopApplications />
+                <Shortcuts />
                 {visibleWindows.map((window) => (
                     <Window
                         key={window.windowId}
@@ -40,4 +40,4 @@ function Home(): ReactNode {
     )
 }
 
-export { Home }
+export { Desktop }

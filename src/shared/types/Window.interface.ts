@@ -1,23 +1,23 @@
 import { ReactNode } from 'react'
-import { ApplicationIcons, Applications } from './Applications.interface'
+import { ShortcutIcons, Shortcuts } from './Shortcuts.interface'
 
 export type WindowStates = 'opened' | 'minimized' | 'expanded'
 
 export interface Window {
     windowId: string
-    windowIcon: keyof ApplicationIcons
+    windowIcon: keyof ShortcutIcons
     windowTitle: string
     windowSize: { w: number; h: number }
     isExpanded: boolean
     windowState: WindowStates
-    application: keyof Applications
+    application: keyof Shortcuts
     coordinates: { x: number; y: number; z: number }
 }
 
 export interface OpenWindowDTO {
-    icon: keyof ApplicationIcons
+    icon: keyof ShortcutIcons
     title: string
-    application: keyof Applications
+    application: keyof Shortcuts
 }
 
 export interface RenderOpenWindow extends OpenWindowDTO {
