@@ -129,6 +129,8 @@
 .expanded {
     width: 100vw !important;
     height: calc(100vh - var(--taskbar-height)) !important;
+    box-sizing: border-box;
+    position: absolute;
 }
 
 .not-top-view-window {
