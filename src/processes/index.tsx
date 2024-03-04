@@ -1,1 +1,1 @@
-export { BootUpToHomePage as BootUpToHomePage } from './boot-up-to-home'
+export { BootUpToDesktopPage as BootUpToDesktopPage } from './boot-up-to-desktop'

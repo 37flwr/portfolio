@@ -2,7 +2,7 @@ import { type ReactNode } from 'react'
 import { useBootUpStateStore } from '@app/store/bootUp'
 import { BootUpPage, DesktopPage } from '@pages/index'
 
-function BootUpToHomePage(): ReactNode {
+function BootUpToDesktopPage(): ReactNode {
     const showedBootUp = useBootUpStateStore(
         (store) => store.showedBootUpScreen
     )
@@ -12,4 +12,4 @@ function BootUpToHomePage(): ReactNode {
     return <DesktopPage />
 }
 
-export { BootUpToHomePage }
+export { BootUpToDesktopPage }
