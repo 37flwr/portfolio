@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode, useState } from 'react'
-import { useBootUpStateStore } from '@app/store/bootUp'
+import { useApplicationStateStore } from '@app/store/applicationState'
 import { Grain } from '@shared/ui/grain'
 import { TahomaTextElement } from '@shared/ui/text-elements'
 import { LoadingBar } from '@shared/ui/loading-bar'
@@ -16,7 +16,7 @@ import './styles.scss'
 function BootUpPage(): ReactNode {
     const [showGreetingScreen, setShowGreetingScreen] = useState<boolean>(false)
 
-    const setShowedBootUpScreenTo = useBootUpStateStore(
+    const setShowedBootUpScreenTo = useApplicationStateStore(
         (store) => store.setShowedBootUpScreenTo
     )
 

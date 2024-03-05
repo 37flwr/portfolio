@@ -1,9 +1,9 @@
 import { type ReactNode } from 'react'
-import { useBootUpStateStore } from '@app/store/bootUp'
+import { useApplicationStateStore } from '@app/store/applicationState'
 import { BootUpPage, DesktopPage } from '@pages/index'
 
 function BootUpToDesktopPage(): ReactNode {
-    const showedBootUp = useBootUpStateStore(
+    const showedBootUp = useApplicationStateStore(
         (store) => store.showedBootUpScreen
     )
 

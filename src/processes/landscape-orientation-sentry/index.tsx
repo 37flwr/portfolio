@@ -1,18 +1,31 @@
-import { useState, useEffect, type PropsWithChildren } from 'react'
-import './styles.scss'
+import { useEffect, type PropsWithChildren } from 'react'
+import { useApplicationStateStore } from '@app/store/applicationState'
 import { NotoSansTextElement } from '@shared/ui/text-elements'
+import './styles.scss'
 
-const getOrientation = () => window.screen.orientation.type
+const getOrientation = () => {
+    const orientation = window.screen.orientation.type
+
+    if (
+        orientation === 'landscape-primary' ||
+        orientation === 'landscape-secondary'
+    ) {
+        return 'landscape'
+    }
+
+    return 'portrait'
+}
 
 function LandscapeOrientationSentry({ children }: PropsWithChildren) {
-    const [orientation, setOrientation] = useState(getOrientation())
+    const { deviceOrientation, setDeviceOrientationTo } =
+        useApplicationStateStore()
 
     const updateOrientation = () => {
-        setOrientation(getOrientation())
+        setDeviceOrientationTo(getOrientation())
     }
 
     useEffect(() => {
-        console.log(orientation)
+        updateOrientation()
 
         window.addEventListener('orientationchange', updateOrientation)
         return () => {
@@ -20,10 +33,7 @@ function LandscapeOrientationSentry({ children }: PropsWithChildren) {
         }
     }, [])
 
-    if (
-        orientation === 'portrait-primary' ||
-        orientation === 'portrait-secondary'
-    ) {
+    if (deviceOrientation === 'portrait') {
         return (
             <div className="orientation-sentry">
                 <div className="orientation-sentry__phone"></div>
