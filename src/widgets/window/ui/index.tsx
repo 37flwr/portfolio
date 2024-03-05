@@ -6,13 +6,13 @@ import { WindowFrame } from './WindowFrame'
 import { WindowContext } from '../model/windowContext'
 import { WindowDTO } from '@shared/types/Window.interface'
 import { checkTouchDevice } from '@shared/lib/checkTouchDevice'
-import { getRandomInt } from '@shared/lib/random'
 
 interface Props extends WindowDTO {
     topViewWindow: boolean
 }
 
 function Window({ windowId, topViewWindow }: Props): ReactNode {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [touchDevice, _] = useState(checkTouchDevice())
     const window = useWindowsStore(
         (store) =>

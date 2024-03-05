@@ -14,6 +14,7 @@ interface IOpenWindow {
 }
 
 function OpenWindow(windowInfo: IOpenWindow): ReactNode {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [touchDevice, _] = useState(checkTouchDevice())
     const openWindowFn = () =>
         openWindow({
