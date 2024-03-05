@@ -1,13 +1,14 @@
 .window {
     width: 640px;
     height: 480px;
+    box-sizing: border-box;
     background: green;
     border: 1px solid black;
     border-radius: 5px 5px 0 0;
     display: flex;
     flex-direction: column;
     border-color: #0072ef #01279e #01279e #0236d8;
-    position: relative;
+    position: absolute;
     background: linear-gradient(
             to right,
             #034fe1,
@@ -103,7 +104,6 @@
             &__text {
                 text-shadow: 1px 1px #000;
                 color: var(--color-white);
-                z-index: 1;
             }
         }
 

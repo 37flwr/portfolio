@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { useMemo, type ReactNode } from 'react'
 import cn from 'classnames'
 import {
     shortcutIconScheme,
@@ -9,19 +9,36 @@ import { useWindowContext } from '../model/windowContext'
 import { TrebuchetTextElement } from '@shared/ui/text-elements'
 
 import './styles.scss'
+import { getRandomInt } from '@shared/lib/random'
 
 function WindowFrame({
     className,
+    generateWindowPosition,
+    zCoordinate,
     topViewWindow,
 }: {
     className?: string
+    generateWindowPosition?: boolean
+    zCoordinate?: number
     topViewWindow: boolean
 }): ReactNode {
+    const windowPosition = useMemo(
+        () => ({ x: getRandomInt(0, 100), y: getRandomInt(0, 100) }),
+        [generateWindowPosition]
+    )
+
     const window = useWindowContext()
     return (
         <div
             className={cn('window', className)}
-            style={{ width: window.windowSize.w, height: window.windowSize.h }}
+            style={{
+                width: window.windowSize.w,
+                height: window.windowSize.h,
+                top: windowPosition?.y,
+                left: windowPosition?.x,
+                zIndex: zCoordinate,
+                // transform: `translate(${position?.x}, ${position?.y})`,
+            }}
         >
             <div className="window__title-bar">
                 {!topViewWindow && <div className="not-top-view-window" />}

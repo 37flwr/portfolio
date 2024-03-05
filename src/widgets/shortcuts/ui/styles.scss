@@ -23,3 +23,9 @@
         }
     }
 }
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: 80px;
+    grid-template-rows: 80px;
+}

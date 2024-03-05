@@ -3,7 +3,7 @@ import { useDoubleTap } from 'use-double-tap'
 import { openWindow } from '../model/openWindow'
 import { NotoSansTextElement } from '@shared/ui/text-elements'
 import { RenderOpenWindow } from '@shared/types/Window.interface'
-import { checkTouchDevice } from '../lib/checkTouchDevice'
+import { checkTouchDevice } from '@shared/lib/checkTouchDevice'
 import './styles.scss'
 
 function OpenWindowFromFolder(windowInfo: RenderOpenWindow): ReactNode {
@@ -13,7 +13,9 @@ function OpenWindowFromFolder(windowInfo: RenderOpenWindow): ReactNode {
         <button
             className="folder-icon"
             {...(checkTouchDevice()
-                ? { onClick: openWindowFn }
+                ? {
+                      onClick: openWindowFn,
+                  }
                 : { ...bindDoubleClick })}
         >
             <div className="folder-icon__img">{windowInfo.Icon}</div>
