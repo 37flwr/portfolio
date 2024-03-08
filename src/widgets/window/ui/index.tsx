@@ -23,10 +23,7 @@ function Window({ windowId, topViewWindow }: Props): ReactNode {
     if (window.isExpanded) {
         return (
             <WindowContext.Provider value={window}>
-                <WindowFrame
-                    className="expanded"
-                    topViewWindow={topViewWindow}
-                />
+                <WindowFrame expanded={true} topViewWindow={topViewWindow} />
             </WindowContext.Provider>
         )
     }
@@ -36,7 +33,6 @@ function Window({ windowId, topViewWindow }: Props): ReactNode {
             <WindowContext.Provider value={window}>
                 <WindowFrame
                     topViewWindow={topViewWindow}
-                    generateWindowPosition={true}
                     zCoordinate={window.coordinates.z}
                 />
             </WindowContext.Provider>

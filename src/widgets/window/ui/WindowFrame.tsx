@@ -1,4 +1,4 @@
-import { useMemo, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import cn from 'classnames'
 import {
     shortcutIconScheme,
@@ -9,35 +9,28 @@ import { useWindowContext } from '../model/windowContext'
 import { TrebuchetTextElement } from '@shared/ui/text-elements'
 
 import './styles.scss'
-import { getRandomInt } from '@shared/lib/random'
 
-function WindowFrame({
-    className,
-    generateWindowPosition,
-    zCoordinate,
-    topViewWindow,
-}: {
+type Props = {
     className?: string
     generateWindowPosition?: boolean
     zCoordinate?: number
     topViewWindow: boolean
-}): ReactNode {
-    const windowPosition = useMemo(
-        () => ({ x: getRandomInt(0, 100), y: getRandomInt(0, 100) }),
-        [generateWindowPosition]
-    )
-
+    expanded?: boolean
+}
+function WindowFrame({
+    className,
+    zCoordinate,
+    topViewWindow,
+    expanded,
+}: Props): ReactNode {
     const window = useWindowContext()
     return (
         <div
-            className={cn('window', className)}
+            className={cn('window', expanded && 'expanded', className)}
             style={{
                 width: window.windowSize.w,
                 height: window.windowSize.h,
-                top: windowPosition?.y,
-                left: windowPosition?.x,
                 zIndex: zCoordinate,
-                // transform: `translate(${position?.x}, ${position?.y})`,
             }}
         >
             <div className="window__title-bar">

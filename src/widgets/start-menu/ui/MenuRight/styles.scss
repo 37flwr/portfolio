@@ -1,0 +1,15 @@
+.start-menu__right {
+    background-color: #cbe3ff;
+    border-left: solid #3a3aff5e 1px;
+    padding: 6px 5px 5px;
+    width: 190px;
+    color: #00136b;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    &__item {
+        color: #00136b;
+    }
+}

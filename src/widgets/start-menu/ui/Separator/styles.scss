@@ -1,0 +1,13 @@
+.start-menu__separator {
+    height: 7.5px;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    background-clip: content-box;
+    box-sizing: border-box;
+}

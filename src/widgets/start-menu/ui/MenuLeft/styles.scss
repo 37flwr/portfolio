@@ -1,0 +1,36 @@
+.start-menu__left {
+    background-color: #fff;
+    padding: 6px 5px;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        height: 30px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #2f71cd;
+
+            .start-menu__left__footer__text {
+                color: var(--color-white);
+            }
+        }
+
+        &__text {
+            color: var(--color-black);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        &__icon {
+            height: 18px;
+            width: auto;
+        }
+    }
+}

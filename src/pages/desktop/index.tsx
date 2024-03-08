@@ -1,8 +1,10 @@
 import { useMemo, type ReactNode } from 'react'
 import { useWindowsStore } from '@app/store/windows'
+import { useApplicationStateStore } from '@app/store/applicationState'
 import { Shortcuts } from '@widgets/shortcuts'
 import { Window } from '@widgets/window'
 import { Taskbar } from '@widgets/taskbar'
+import { StartMenu } from '@widgets/start-menu'
 import wallpaper from '@shared/assets/images/wallpaper.jpeg'
 import { findBiggestZIndex } from '@shared/lib/getWindowDetails'
 
@@ -22,6 +24,10 @@ function Desktop(): ReactNode {
         [visibleWindows]
     )
 
+    const startMenuVisible = useApplicationStateStore(
+        (store) => store.menuOpened
+    )
+
     return (
         <>
             <div className="desktop">
@@ -34,6 +40,7 @@ function Desktop(): ReactNode {
                     />
                 ))}
             </div>
+            {startMenuVisible && <StartMenu />}
             <Taskbar />
             <img className="wallpaper" src={wallpaper} alt="" />
         </>
