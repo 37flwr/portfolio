@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react'
 
 export function useOuterClick(callback: (event: MouseEvent) => void) {
     const callbackRef = useRef<(event: MouseEvent) => void>() // initialize mutable ref, which stores callback
-    const innerRef = useRef<HTMLDialogElement>(null) // returned to client, who marks "border" element
+    const innerRef = useRef<HTMLDivElement>(null) // returned to client, who marks "border" element
 
     // update cb on each render, so second useEffect has access to current value
     useEffect(() => {

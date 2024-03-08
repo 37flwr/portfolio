@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, children }: Props) => {
 
     if (!isOpen) return null
 
-    return <dialog ref={innerRef}>{children}</dialog>
+    return <div ref={innerRef}>{children}</div>
 }
 
 export { Modal }
