@@ -5,6 +5,7 @@ import { SystemTray } from '@entities/system-tray'
 import { TaskbarButton } from './TaskbarButton'
 
 import './styles.scss'
+import { Each } from '@shared/ui/each'
 
 function Taskbar(): ReactNode {
     const windows = useWindowsStore((store) => store.windows)
@@ -15,12 +16,12 @@ function Taskbar(): ReactNode {
                 <OpenStartMenuButton />
             </div>
             <div className="taskbar__buttons">
-                {windows.map((window) => (
-                    <TaskbarButton
-                        key={window.windowId}
-                        windowId={window.windowId}
-                    />
-                ))}
+                <Each
+                    of={windows}
+                    render={(window, index) => (
+                        <TaskbarButton key={index} windowId={window.windowId} />
+                    )}
+                />
             </div>
             <div className="taskbar__system-tray">
                 <SystemTray />

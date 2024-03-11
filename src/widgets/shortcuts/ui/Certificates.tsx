@@ -4,6 +4,7 @@ import { FolderFrame } from '@entities/folder'
 import { RenderOpenWindow } from '@shared/types/Window.interface'
 import Icons from '@shared/ui/windows-icons'
 import './styles.scss'
+import { Each } from '@shared/ui/each'
 
 const folderChildren: Array<RenderOpenWindow> = [
     {
@@ -29,9 +30,12 @@ const folderChildren: Array<RenderOpenWindow> = [
 function Certificates(): ReactNode {
     return (
         <FolderFrame Icon={<Icons.Folder.Base />} folderName="Certificates">
-            {folderChildren.map((folderChild, idx) => (
-                <OpenWindowFromFolderButton key={idx} {...folderChild} />
-            ))}
+            <Each
+                of={folderChildren}
+                render={(folderChild, index) => (
+                    <OpenWindowFromFolderButton key={index} {...folderChild} />
+                )}
+            />
         </FolderFrame>
     )
 }

@@ -5,6 +5,7 @@ import { DraggableShortcut } from '@features/drag-shortcut'
 import { checkTouchDevice } from '@shared/lib/checkTouchDevice'
 import { shortcutIconScheme } from '../lib/shortcutsScheme'
 import './styles.scss'
+import { Each } from '@shared/ui/each'
 
 function Shortcuts(): ReactNode {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -12,28 +13,31 @@ function Shortcuts(): ReactNode {
     const shortcuts = useShortcutsStore().shortcuts
     return (
         <div className="shortcuts">
-            {shortcuts.map((shortcut) =>
-                touchDevice ? (
-                    <div className="shortcuts-grid" key={shortcut.title}>
-                        <OpenWindowButton
-                            {...shortcut}
-                            iconTitle={shortcut.icon}
-                            Icon={shortcutIconScheme[shortcut.icon]}
-                        />
-                    </div>
-                ) : (
-                    <DraggableShortcut
-                        shortcutId={shortcut.shortcutId}
-                        key={shortcut.title}
-                    >
-                        <OpenWindowButton
-                            {...shortcut}
-                            iconTitle={shortcut.icon}
-                            Icon={shortcutIconScheme[shortcut.icon]}
-                        />
-                    </DraggableShortcut>
-                )
-            )}
+            <Each
+                of={shortcuts}
+                render={(shortcut, index) =>
+                    touchDevice ? (
+                        <div className="shortcuts-grid" key={index}>
+                            <OpenWindowButton
+                                {...shortcut}
+                                iconTitle={shortcut.icon}
+                                Icon={shortcutIconScheme[shortcut.icon]}
+                            />
+                        </div>
+                    ) : (
+                        <DraggableShortcut
+                            shortcutId={shortcut.shortcutId}
+                            key={index}
+                        >
+                            <OpenWindowButton
+                                {...shortcut}
+                                iconTitle={shortcut.icon}
+                                Icon={shortcutIconScheme[shortcut.icon]}
+                            />
+                        </DraggableShortcut>
+                    )
+                }
+            />
         </div>
     )
 }
