@@ -1,20 +1,22 @@
 import { type ReactNode } from 'react'
-import { StartButton } from '@entities/start-button'
-import Icons from '@shared/ui/windows-icons'
 import { useMenuState } from '../model/useMenuState'
+import Icons from '@shared/ui/windows-icons'
 
 function OpenStartMenuButton(): ReactNode {
     const [menuOpened, switchMenuOpenedState] = useMenuState()
 
-    if (menuOpened) {
-        return (
-            <button className="start-button" onClick={switchMenuOpenedState}>
-                <Icons.StartMenu.Active />
-            </button>
-        )
-    }
-
-    return <StartButton onClick={switchMenuOpenedState} />
+    return (
+        <button
+            onClick={(e) => {
+                if (!menuOpened) {
+                    e.stopPropagation()
+                    switchMenuOpenedState()
+                }
+            }}
+        >
+            <Icons.StartMenu.Stale />
+        </button>
+    )
 }
 
 export { OpenStartMenuButton }

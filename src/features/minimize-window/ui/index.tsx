@@ -1,15 +1,10 @@
 import { type ReactNode } from 'react'
-import { WindowActionButtonFactory } from '@entities/window-action-button-factory'
 import { minimizeWindow } from '../model/minimizeWindow'
 import { WindowDTO } from '@shared/types/Window.interface'
+import { MinimizeWindowButton } from '@shared/ui/windows-buttons'
 
 function MinimizeWindow({ windowId }: WindowDTO): ReactNode {
-    return (
-        <WindowActionButtonFactory
-            onClick={() => minimizeWindow(windowId)}
-            type="minimize"
-        />
-    )
+    return <MinimizeWindowButton onClick={() => minimizeWindow(windowId)} />
 }
 
 export { MinimizeWindow }

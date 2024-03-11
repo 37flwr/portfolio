@@ -1,7 +1,12 @@
 import { useState, type ReactNode } from 'react'
-import { IButtonWithHoverActiveStaleStates } from '../lib/ButtonWithStates.interface'
 
-import './styles.scss'
+type Props = {
+    active: ReactNode
+    hover: ReactNode
+    stale: ReactNode
+    className?: string
+    onClick: () => void
+}
 
 function ButtonWithHoverActiveStaleStates({
     active,
@@ -9,7 +14,7 @@ function ButtonWithHoverActiveStaleStates({
     stale,
     onClick,
     className,
-}: IButtonWithHoverActiveStaleStates): ReactNode {
+}: Props): ReactNode {
     const [activeState, setActiveState] = useState<boolean>(false)
     const [hoverState, setHoverState] = useState<boolean>(false)
     return (
@@ -28,7 +33,7 @@ function ButtonWithHoverActiveStaleStates({
                 setActiveState(false)
                 onClick()
             }}
-            className={`button-with-states ${className}`}
+            className={className}
         >
             {activeState ? active : hoverState ? hover : stale}
         </button>

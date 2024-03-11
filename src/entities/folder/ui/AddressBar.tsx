@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { ButtonWithHoverActiveStaleStates } from '@entities/button-with-states'
+import { ButtonWithStates } from '@entities/button-with-states'
 import { NotoSansTextElement } from '@shared/ui/text-elements'
 import Icons from '@shared/ui/windows-icons'
 import './styles.scss'
@@ -19,7 +19,7 @@ function AddressBar({ Icon, folderName }: IFolderAddressBar): ReactNode {
                 <NotoSansTextElement className="folder__address-bar__content__label">
                     {folderName}
                 </NotoSansTextElement>
-                <ButtonWithHoverActiveStaleStates
+                <ButtonWithStates
                     active={<Icons.Dropdown.Active />}
                     hover={<Icons.Dropdown.Hover />}
                     stale={<Icons.Dropdown.Stale />}
