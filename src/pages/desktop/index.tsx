@@ -8,6 +8,7 @@ import wallpaper from '@shared/assets/images/wallpaper.jpeg'
 import { findBiggestZIndex } from '@shared/lib/getWindowDetails'
 
 import './styles.scss'
+import { Each } from '@shared/ui/each'
 
 function Desktop(): ReactNode {
     const visibleWindows = useWindowsStore((store) =>
@@ -27,13 +28,16 @@ function Desktop(): ReactNode {
         <>
             <div className="desktop">
                 <Shortcuts />
-                {visibleWindows.map((window) => (
-                    <Window
-                        key={window.windowId}
-                        windowId={window.windowId}
-                        topViewWindow={topViewWindowId === window.windowId}
-                    />
-                ))}
+                <Each
+                    of={visibleWindows}
+                    render={(window, index) => (
+                        <Window
+                            key={index}
+                            windowId={window.windowId}
+                            topViewWindow={topViewWindowId === window.windowId}
+                        />
+                    )}
+                />
             </div>
             <StartMenu />
             <Taskbar />
