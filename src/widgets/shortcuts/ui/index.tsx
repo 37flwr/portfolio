@@ -38,31 +38,6 @@ function Shortcuts(): ReactNode {
                     )
                 }
             />
-            <Each
-                of={shortcuts}
-                render={(shortcut, index) =>
-                    touchDevice ? (
-                        <div className="shortcuts-grid" key={index}>
-                            <OpenWindowButton
-                                {...shortcut}
-                                iconTitle={shortcut.icon}
-                                Icon={shortcutIconScheme[shortcut.icon]}
-                            />
-                        </div>
-                    ) : (
-                        <DraggableShortcut
-                            shortcutId={shortcut.shortcutId}
-                            key={index}
-                        >
-                            <OpenWindowButton
-                                {...shortcut}
-                                iconTitle={shortcut.icon}
-                                Icon={shortcutIconScheme[shortcut.icon]}
-                            />
-                        </DraggableShortcut>
-                    )
-                }
-            />
         </div>
     )
 }
