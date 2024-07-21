@@ -5,6 +5,9 @@ type ShortcutTitles =
     | 'pdf/cv'
     | 'pdf/microfrontends'
     | 'pdf/cryptography'
+    | 'pdf/advanced_email_marketing'
+    | 'pdf/deliverability'
+    | 'pdf/digital_marketing_ecommerce'
     | 'meme/rickAstley'
     | 'folder/certificates'
 

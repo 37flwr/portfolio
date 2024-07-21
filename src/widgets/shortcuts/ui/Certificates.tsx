@@ -7,23 +7,41 @@ import './styles.scss'
 import { Each } from '@shared/ui/each'
 
 const folderChildren: Array<RenderOpenWindow> = [
+    // {
+    //     icon: 'pdf',
+    //     Icon: <Icons.Mimetype.Pdf />,
+    //     title: 'Microfrontends with React',
+    //     application: 'pdf/microfrontends',
+    // },
+    // {
+    //     icon: 'pdf',
+    //     Icon: <Icons.Mimetype.Pdf />,
+    //     title: 'Cryptography and Hashing',
+    //     application: 'pdf/cryptography',
+    // },
+    // {
+    //     icon: 'pdf',
+    //     Icon: <Icons.Mimetype.Pdf />,
+    //     title: 'Cryptography and Hashing',
+    //     application: 'pdf/cryptography',
+    // },
     {
         icon: 'pdf',
         Icon: <Icons.Mimetype.Pdf />,
-        title: 'Microfrontends with React',
-        application: 'pdf/microfrontends',
+        title: 'Advanced Email Marketing',
+        application: 'pdf/advanced_email_marketing',
     },
     {
         icon: 'pdf',
         Icon: <Icons.Mimetype.Pdf />,
-        title: 'Cryptography and Hashing',
-        application: 'pdf/cryptography',
+        title: 'Delivarability',
+        application: 'pdf/deliverability',
     },
     {
         icon: 'pdf',
         Icon: <Icons.Mimetype.Pdf />,
-        title: 'Cryptography and Hashing',
-        application: 'pdf/cryptography',
+        title: 'Digital Marketing & E-commerce',
+        application: 'pdf/digital_marketing_ecommerce',
     },
 ]
 
